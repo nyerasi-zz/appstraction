@@ -1,5 +1,5 @@
 # appstraction
-A React Native companion app for museum exhibit
+A React Native companion app for an upcoming museum exhibit.
 
 Introduction:
 https://medium.com/@addyosmani/progressive-web-apps-with-react-js-part-i-introduction-50679aef2b12
