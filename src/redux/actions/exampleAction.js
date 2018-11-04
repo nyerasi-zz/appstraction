@@ -4,7 +4,7 @@
 
  const TYPES ={
      EXAMPLE_ACTION: 'EXAMPLE_ACTION'
- }
+ };
 
  export function exampleAction(dispatch) {
      return dispatch({type: TYPES.EXAMPLE_ACTION, payload: {}});

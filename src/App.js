@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { View, Text, Animated, StyleSheet, StatusBar, TouchableOpacity } from "react-native";
+import { View, Text, Animated, StyleSheet, StatusBar } from "react-native";
 import { exampleAction } from "./redux/actions/exampleAction";
-import { Router, Switch, Link, Route } from './Routing';
+import { Router, Switch, Route } from './routers/Routing.web'; // change to native if needed
+import Other from './components/Other/Other';
+import Home from './components/Home/Home';
 
 export class App extends React.Component {
     constructor(props) {
@@ -22,17 +24,6 @@ export class App extends React.Component {
         StatusBar.setBarStyle("light-content");
     }
 
-    Home = (rotationStyle) => {
-        return (
-            <View style={{ alignItems: 'center', flex: 3 }}>
-                <Link to={'/one'} component={TouchableOpacity} >
-                    <Text style={styles.appIntro}>
-                        To get started, edit src/App.js and save to reload.
-                    </Text>
-                </Link>
-            </View>
-        );
-    }
     render() {
         const rotationStyle = {
             transform: [
@@ -62,26 +53,12 @@ export class App extends React.Component {
                 <Text>Redux stuff:</Text>
                 <Router>
                     <Switch hideNavBar={true}>
-                        <Route exact path="/" component={this.Home} />
+                        <Route exact path="/" component={Home} />
                         <Route path="/one" component={Other} />
                     </Switch>
                 </Router>
             </View>
         );
-    }
-}
-
-export class Other extends React.Component {
-    render() {
-        return (
-            <View style={{ alignItems: 'center', flex: 3 }}>
-                <Link to={'/'} component={TouchableOpacity}>
-                    <Text style={styles.appIntro}>
-                        Other page
-                    </Text>
-                </Link>
-            </View>
-        )
     }
 }
 

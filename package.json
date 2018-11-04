@@ -8,6 +8,7 @@
         "react-art": "^16.3.2",
         "react-dom": "^16.3.1",
         "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
+        "react-native-extended-stylesheet": "^0.10.0",
         "react-native-web": "^0.8.9",
         "react-redux": "^5.0.7",
         "react-router": "^4.2.0",
