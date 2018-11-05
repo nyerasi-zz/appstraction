@@ -14,7 +14,7 @@ https://medium.com/one-more-thing-studio/native-react-native-or-pwa-what-should-
 
 # React Native Web Starter
 
-Link: https://reacttraining.com/react-router/web/guides/quick-start
+Original Repo Link: https://github.com/joefazz/react-native-web-starter
 
 ## Introduction
 
@@ -29,7 +29,7 @@ It has then been integrated with [Create React Native App](https://github.com/re
 | Package                 | Description                                                                                                                                                              |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | redux                   | Implements redux reducers, actions, store and connection including example                                                                                               |
-| navigation-react-router | Using react-router-dom, react-router-native and react-router-navigation in order to have a platform agnostic navigation solution including native look at feel on phones |
+| navigation-react-router | Using [react-router-dom, react-router-native and react-router-navigation](https://reacttraining.com/react-router/web/guides/quick-start) in order to have a platform agnostic navigation solution including native look at feel on phones |
 
 ## Get Started
 
