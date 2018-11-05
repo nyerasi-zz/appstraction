@@ -36,13 +36,13 @@
         "preset": "jest-expo"
     },
     "devDependencies": {
-        "babel-plugin-react-native-web": "^0.8.2",
+        "babel-plugin-react-native-web": "^0.8.11",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "babel-plugin-transform-react-jsx-source": "^6.22.0",
         "babel-preset-expo": "^4.0.0",
         "flow-bin": "^0.67.0",
         "jest-expo": "^27.0.0",
-        "react-native-scripts": "^1.14.0",
+        "react-native-scripts": "^1.14.1",
         "react-test-renderer": "16.3.2"
     }
 }
