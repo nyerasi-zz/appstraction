@@ -33,7 +33,7 @@ It has then been integrated with [Create React Native App](https://github.com/re
 
 ## React Router
 This package allows you to set the page's components based on what the URL is. All you need to do is wrap the components by a `<Router>` tag and insert which components you want to modify using the `<Link>` tag.
-    - Here is an example: https://reacttraining.com/react-router/web/guides/quick-start/example-basic-routing
+ - Here is an example: https://reacttraining.com/react-router/web/guides/quick-start/example-basic-routing
 
 ## Get Started
 
