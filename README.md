@@ -14,6 +14,8 @@ https://medium.com/one-more-thing-studio/native-react-native-or-pwa-what-should-
 
 # React Native Web Starter
 
+Link: https://reacttraining.com/react-router/web/guides/quick-start
+
 ## Introduction
 
 This repo is intending to provide an easy starting point for developers looking to make fully cross platform applications across both web with [React Native Web](https://github.com/necolas/react-native-web) and mobile with [Expo](https://github.com/react-community/create-react-native-app).
