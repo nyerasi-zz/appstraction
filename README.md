@@ -14,6 +14,8 @@ https://medium.com/one-more-thing-studio/native-react-native-or-pwa-what-should-
 
 # React Native Web Starter
 
+Original Repo Link: https://github.com/joefazz/react-native-web-starter
+
 ## Introduction
 
 This repo is intending to provide an easy starting point for developers looking to make fully cross platform applications across both web with [React Native Web](https://github.com/necolas/react-native-web) and mobile with [Expo](https://github.com/react-community/create-react-native-app).
@@ -27,7 +29,11 @@ It has then been integrated with [Create React Native App](https://github.com/re
 | Package                 | Description                                                                                                                                                              |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | redux                   | Implements redux reducers, actions, store and connection including example                                                                                               |
-| navigation-react-router | Using react-router-dom, react-router-native and react-router-navigation in order to have a platform agnostic navigation solution including native look at feel on phones |
+| navigation-react-router | Using [react-router-dom, react-router-native and react-router-navigation](https://reacttraining.com/react-router/web/guides/quick-start) in order to have a platform agnostic navigation solution including native look at feel on phones |
+
+## React Router
+This package allows you to set the page's components based on what the URL is. All you need to do is wrap the components by a `<Router>` tag and insert which components you want to modify using the `<Link>` tag.
+ - Here is an example: https://reacttraining.com/react-router/web/guides/quick-start/example-basic-routing
 
 ## Get Started
 

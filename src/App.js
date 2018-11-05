@@ -1,3 +1,9 @@
+/*
+* TODO:
+* - Create folder for "pages", and make App.js the main router by refactoring all the code
+*
+**/
+
 import React from "react";
 import { connect } from "react-redux";
 import { View, Text, Animated, StyleSheet, StatusBar, Image, ImageBackground} from "react-native";
@@ -9,7 +15,6 @@ import Home from './components/Home/Home';
 export class App extends React.Component {
     constructor(props) {
         super(props);
-
         this.imageAnimation = new Animated.Value(0);
     }
 
@@ -72,10 +77,12 @@ export class App extends React.Component {
     }
 }
 
+// Redux state config
 const mapStateToProps = state => ({
     example: state.example
 });
 
+// dispatch actions
 const bindActions = dispatch => ({
     exampleAction: () => dispatch(exampleAction())
 });
