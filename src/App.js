@@ -6,13 +6,9 @@
 
 import React from "react";
 import { connect } from "react-redux";
-import { View, Text, Animated, StyleSheet, StatusBar } from "react-native";
-
-// routing + actions
+import { View, Text, Animated, StyleSheet, StatusBar, Image, ImageBackground} from "react-native";
 import { exampleAction } from "./redux/actions/exampleAction";
 import { Router, Switch, Route } from './routers/Routing'; // change to native if needed
-
-// components
 import Other from './components/Other/Other';
 import Home from './components/Home/Home';
 
@@ -46,27 +42,37 @@ export class App extends React.Component {
         };
 
         return (
-            <View style={styles.app}>
+                <ImageBackground
+                style={styles.backgroundImage}
+                imageStyle={{resizeMode: 'cover'}}
+                source={require("./assets/museum3.jpg")}
+                blurRadius={7.5}>
                 <View style={styles.appHeader}>
                     <Animated.Image
-                        style={[styles.headerImage, rotationStyle]}
+                        style={[styles.headerImage]}
                         resizeMode={"contain"}
-                        source={require("./assets/react-logo.png")}
+                        source={require("./assets/bampfa_logo.png")}
                     />
-                    <Text style={styles.appTitle}>Welcome to React Native Web️</Text>
-                    <Text style={styles.appSubtitle}>Navigation + Redux Edition</Text>
                 </View>
                 <View style={{ alignItems: "center", flex: 3 }}>
-                    <Text style={styles.appIntro}>To get started, edit src/App.js and save to reload.</Text>
+                    <Image
+                    style={styles.titleImage}
+                    resizeMode={"contain"}
+                    source={require("./assets/essay_title_white.png")}
+                    />
                 </View>
-                <Text>Redux stuff:</Text>
+                    <Image
+                    style={styles.startImage}
+                    resizeMode={"contain"}
+                    source={require("./assets/start_arrow.png")}
+                    />
                 <Router>
                     <Switch hideNavBar={true}>
                         <Route exact path="/" component={Home} />
                         <Route path="/one" component={Other} />
                     </Switch>
                 </Router>
-            </View>
+                </ImageBackground>
         );
     }
 }
@@ -89,27 +95,36 @@ const styles = StyleSheet.create({
     },
     appHeader: {
         flex: 1,
-        backgroundColor: "#222",
-        padding: 20,
+        // backgroundColor: "#222",
+        padding: 50,
         justifyContent: "center",
         alignItems: "center"
     },
+    backgroundImage: {
+        alignItems: "center",
+        justifyContent: "center",
+        flex: 1
+    },
+    titleImage: {
+      width: 300,
+      height: 300
+    },
     headerImage: {
-        width: 200,
-        height: 200,
-        flex: 3
+        width: 100,
+        height: 100,
+        flex: 1
     },
-    appTitle: {
-        flex: 1,
-        fontSize: 16,
-        color: "white"
-    },
-    appSubtitle: {
-        color: "white"
+    startImage: {
+      width: 50,
+      height: 50,
+      paddingRight: 15,
+      flexDirection: 'row',
+      justifyContent: 'space-between'
     },
     appIntro: {
-        flex: 3,
+        flex: 1,
         fontSize: 30,
-        textAlign: "center"
+        textAlign: "center",
+        color: "white"
     }
 });
