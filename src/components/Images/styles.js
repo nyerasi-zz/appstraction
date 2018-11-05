@@ -7,5 +7,16 @@ export default EStyleSheet.create({
     paddingRight: 15,
     flexDirection: "row",
     justifyContent: "space-between"
+  },
+  headerImage: {
+    width: 100,
+    height: 100,
+    flex: 1
+  },
+  appHeader: {
+    flex: 1,
+    padding: 20,
+    justifyContent: "center",
+    alignItems: "center"
   }
 });

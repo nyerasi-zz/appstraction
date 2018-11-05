@@ -7,7 +7,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import { Link } from "../routers/Routing";
-import { StartArrow } from "../components/Images";
+import { StartArrow, Logo } from "../components/Images";
 
 export default class HomePage extends React.Component {
   render() {
@@ -18,13 +18,7 @@ export default class HomePage extends React.Component {
         source={require("../assets/museum3.jpg")}
         blurRadius={7.5}
       >
-        <View style={styles.appHeader}>
-          <Image
-            style={[styles.headerImage]}
-            resizeMode={"contain"}
-            source={require("../assets/bampfa_logo.png")}
-          />
-        </View>
+        <Logo />
         <View style={{ alignItems: "center", flex: 3 }}>
           <Image
             style={styles.titleImage}

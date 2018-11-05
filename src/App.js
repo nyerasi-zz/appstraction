@@ -5,14 +5,10 @@
 
 import React from "react";
 import { connect } from "react-redux";
-import { StyleSheet, StatusBar } from "react-native";
+import { View, StatusBar } from "react-native";
 import { exampleAction } from "./redux/actions/exampleAction";
 import { Router, Switch, Route } from "./routers/Routing";
-
-// custom components
-import Other from "./components/Other/Other";
-// import Home from "./components/Home/Home";
-import HomePage from "./views/HomePage";
+import { HomePage, TempPage } from "./views";
 
 export class App extends React.Component {
   componentDidMount() {
@@ -21,13 +17,15 @@ export class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <Switch hideNavBar={true}>
-          {/* Place all screens and their URLs here */}
-          <Route exact path="/" component={HomePage} />
-          <Route path="/one" component={Other} />
-        </Switch>
-      </Router>
+      <View style={{ flex: 1 }}>
+        <Router>
+          <Switch hideNavBar={true}>
+            {/* Place all views and their URLs here */}
+            <Route exact path="/" component={HomePage} />
+            <Route path="/one" component={TempPage} />
+          </Switch>
+        </Router>
+      </View>
     );
   }
 }
@@ -43,22 +41,3 @@ const bindActions = dispatch => ({
 });
 
 export default connect(mapStateToProps, bindActions)(App);
-
-const styles = StyleSheet.create({
-  app: {
-    flex: 1
-  },
-  appHeader: {
-    flex: 1,
-    // backgroundColor: "#222",
-    padding: 50,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  appIntro: {
-    flex: 1,
-    fontSize: 30,
-    textAlign: "center",
-    color: "white"
-  }
-});
