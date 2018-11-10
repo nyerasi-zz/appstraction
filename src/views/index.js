@@ -1,4 +1,4 @@
 import HomePage from "./HomePage";
-import TempPage from "./TempPage";
+import GlobalMenu from "./GlobalMenu";
 
-export { HomePage, TempPage };
+export { HomePage, GlobalMenu };

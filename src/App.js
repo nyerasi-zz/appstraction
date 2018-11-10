@@ -1,14 +1,14 @@
 /*
-* TODO:
-* - See if you can connect redux to save state across different pages! 
-**/
+ * TODO:
+ * - See if you can connect redux to save state across different pages!
+ **/
 
 import React from "react";
 import { connect } from "react-redux";
 import { View, StatusBar } from "react-native";
 import { exampleAction } from "./redux/actions/exampleAction";
-import { Router, Switch, Route } from "./routers/Routing";
-import { HomePage, TempPage } from "./views";
+import { Router, Switch, Route } from "./routers/Routing.web";
+import { HomePage, GlobalMenu } from "./views";
 
 export class App extends React.Component {
   componentDidMount() {
@@ -22,7 +22,7 @@ export class App extends React.Component {
           <Switch hideNavBar={true}>
             {/* Place all views and their URLs here */}
             <Route exact path="/" component={HomePage} />
-            <Route path="/one" component={TempPage} />
+            <Route path="/global-menu" component={GlobalMenu} />
           </Switch>
         </Router>
       </View>
@@ -40,4 +40,7 @@ const bindActions = dispatch => ({
   exampleAction: () => dispatch(exampleAction())
 });
 
-export default connect(mapStateToProps, bindActions)(App);
+export default connect(
+  mapStateToProps,
+  bindActions
+)(App);
