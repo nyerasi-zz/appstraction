@@ -1,14 +1,20 @@
 # appstraction
+
 A React Native companion app for an upcoming museum exhibit.
 
 Introduction:
 https://medium.com/@addyosmani/progressive-web-apps-with-react-js-part-i-introduction-50679aef2b12
 
-
 (Possibly) Relevant Resources—feel free to edit!
 https://github.com/necolas/react-native-web
 https://medium.com/@Or_yoffe/building-a-platform-agnostic-app-react-native-and-web-c0e82cbdda8
 https://medium.com/one-more-thing-studio/native-react-native-or-pwa-what-should-i-choose-e63f18732b5e
+
+Starter links
+
+- [Original Github](https://medium.com/@yannickdot/write-once-run-anywhere-with-create-react-native-app-and-react-native-web-ad40db63eed0)
+- [Flex box](https://blog.reactnativecoach.com/understanding-flex-in-react-native-b34dfb4b16d1)
+- [React Icons](https://react-icons.netlify.com/#/icons/fa)
 
 <hr>
 
@@ -26,14 +32,16 @@ It has then been integrated with [Create React Native App](https://github.com/re
 
 ## Packages
 
-| Package                 | Description                                                                                                                                                              |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| redux                   | Implements redux reducers, actions, store and connection including example                                                                                               |
+| Package                 | Description                                                                                                                                                                                                                               |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| redux                   | Implements redux reducers, actions, store and connection including example                                                                                                                                                                |
 | navigation-react-router | Using [react-router-dom, react-router-native and react-router-navigation](https://reacttraining.com/react-router/web/guides/quick-start) in order to have a platform agnostic navigation solution including native look at feel on phones |
 
 ## React Router
+
 This package allows you to set the page's components based on what the URL is. All you need to do is wrap the components by a `<Router>` tag and insert which components you want to modify using the `<Link>` tag.
- - Here is an example: https://reacttraining.com/react-router/web/guides/quick-start/example-basic-routing
+
+- Here is an example: https://reacttraining.com/react-router/web/guides/quick-start/example-basic-routing
 
 ## Get Started
 

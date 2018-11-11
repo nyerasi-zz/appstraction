@@ -3,20 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "expo": "^27.0.2",
-    "react": "16.4",
-    "react-art": "^16.6.0",
+    "@types/expo__vector-icons": "^6.2.3",
+    "expo": "^31.0.4",
+    "lodash": "^4.17.11",
+    "react": "16.6.1",
+    "react-art": "^16.3.1",
+    "react-burger-menu": "^2.5.4",
     "react-dom": "^16.3.1",
+    "react-icons": "^3.2.2",
     "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
     "react-native-extended-stylesheet": "^0.10.0",
-    "react-native-web": "^0.8.11",
+    "react-native-web": "^0.9.6",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-router-native": "^4.2.0",
-    "react-router-navigation": "^1.0.0-rc.4",
-    "react-scripts": "1.1.4",
-    "redux": "^4.0.0"
+    "react-router-navigation": "^1.0.0-rc.5",
+    "react-scripts": "^2.1.1",
+    "redux": "^4.0.0",
+    "ws": "^6.1.0"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -39,9 +44,31 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx-source": "^6.22.0",
     "babel-preset-expo": "^4.0.0",
+    "babel-preset-react-native": "^4.0.1",
     "flow-bin": "^0.67.0",
     "jest-expo": "^27.0.0",
+    "prop-types": "^15.6.2",
     "react-native-scripts": "^1.14.0",
     "react-test-renderer": "16.3.2"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "rnpm": {
+    "assets": [
+      "./assets/fonts"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
   }
 }
