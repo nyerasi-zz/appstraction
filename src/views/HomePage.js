@@ -15,7 +15,7 @@ export default class HomePage extends React.Component {
       <ImageBackground
         style={styles.backgroundImage}
         imageStyle={{ resizeMode: "cover" }}
-        source={require("../assets/museum3.jpg")}
+        source={require("../assets/Indian_Sunset.jpg")}
         blurRadius={7.5}
       >
         <Logo />
