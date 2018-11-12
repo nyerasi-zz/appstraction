@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { View, StatusBar } from "react-native";
 import { exampleAction } from "./redux/actions/exampleAction";
 import { Router, Switch, Route } from "./routers/Routing.web";
-import { HomePage, GlobalMenu } from "./views";
+import { HomePage, GlobalMenu, SkipTutorial } from "./views";
 
 export class App extends React.Component {
   componentDidMount() {
@@ -23,6 +23,7 @@ export class App extends React.Component {
             {/* Place all views and their URLs here */}
             <Route exact path="/" component={HomePage} />
             <Route path="/global-menu" component={GlobalMenu} />
+            <Route path="/skip-tutorial" component={SkipTutorial} />
           </Switch>
         </Router>
       </View>

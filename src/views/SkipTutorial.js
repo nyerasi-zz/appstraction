@@ -1,17 +1,11 @@
 import React from "react";
 import { View } from "react-native";
-import {
-  FaWalking,
-  FaClock,
-  FaQuestionCircle,
-  FaInfoCircle
-} from "react-icons/fa";
 
-import { MenuButton } from "../components/Button";
+import { SkipTutorialButton } from "../components/Button";
 import { DefaultHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
 
-export default class GlobalMenu extends React.Component {
+export default class SkipTutorial extends React.Component {
   render() {
     return (
       <View
@@ -44,26 +38,13 @@ export default class GlobalMenu extends React.Component {
               width: "100%"
             }}
           >
-            <MenuButton
-              text="Enter the Exhibit"
-              buttonStyle={{ backgroundColor: "#D20663" }}
-              icon={FaWalking}
-              linksTo="/skip-tutorial"
+            <SkipTutorialButton
+              mainText="I've been here before."
+              arrowText="Skip Tutorial"
             />
-            <MenuButton
-              text="Timeline"
-              buttonStyle={{ backgroundColor: "#F8AD0B" }}
-              icon={FaClock}
-            />
-            <MenuButton
-              text="Tutorial"
-              buttonStyle={{ backgroundColor: "#3DBEA8" }}
-              icon={FaQuestionCircle}
-            />
-            <MenuButton
-              text="About the Artist"
-              buttonStyle={{ backgroundColor: "#186DBE" }}
-              icon={FaInfoCircle}
+            <SkipTutorialButton
+              mainText="This is my first time here!"
+              arrowText="View brief tutorial"
             />
           </View>
         </View>
