@@ -1,15 +1,15 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import { Link } from "../routers/Routing.web";
-import { MenuButton } from "../components/Button";
+import { View } from "react-native";
 import {
   FaWalking,
   FaClock,
   FaQuestionCircle,
-  FaInfoCircle,
-  FaChevronLeft
+  FaInfoCircle
 } from "react-icons/fa";
-import { DefaultHeader } from "../components/Header";
+
+import { MenuButton } from "../components/Button";
+import { DefaultHeader } from "../components/Headers";
+import { Title, SubTitle } from "../components/Text";
 
 export default class GlobalMenu extends React.Component {
   render() {
@@ -17,47 +17,54 @@ export default class GlobalMenu extends React.Component {
       <View
         style={{
           flex: 1,
-          justifyContent: "flex-start",
           backgroundColor: "#F0F0F0"
         }}
       >
-        <DefaultHeader>
-          <Link to={"/"}>
-            <TouchableOpacity>
-              <Text style={{ color: "white", fontSize: 30, padding: 20 }}>
-                <FaChevronLeft />
-              </Text>
-            </TouchableOpacity>
-          </Link>
-        </DefaultHeader>
+        <DefaultHeader />
+
+        {/* CONTENT */}
         <View
           style={{
             flex: 1,
-            width: "100%",
             justifyContent: "center",
             alignItems: "center"
           }}
         >
-          <MenuButton
-            text="Enter the Exhibit"
-            buttonStyle={{ backgroundColor: "#D20663" }}
-            icon={FaWalking}
-          />
-          <MenuButton
-            text="Timeline"
-            buttonStyle={{ backgroundColor: "#F8AD0B" }}
-            icon={FaClock}
-          />
-          <MenuButton
-            text="Tutorial"
-            buttonStyle={{ backgroundColor: "#3DBEA8" }}
-            icon={FaQuestionCircle}
-          />
-          <MenuButton
-            text="About the Artist"
-            buttonStyle={{ backgroundColor: "#186DBE" }}
-            icon={FaInfoCircle}
-          />
+          <View style={{ flex: 1, width: "90%", justifyContent: "center" }}>
+            <Title>Welcome to the Hans Hofmann Exhibit</Title>
+            <SubTitle>
+              A chronology of Hans Hofmann's work and investment to teaching.
+            </SubTitle>
+          </View>
+
+          <View
+            style={{
+              flex: 1,
+              alignItems: "center",
+              width: "100%"
+            }}
+          >
+            <MenuButton
+              text="Enter the Exhibit"
+              buttonStyle={{ backgroundColor: "#D20663" }}
+              icon={FaWalking}
+            />
+            <MenuButton
+              text="Timeline"
+              buttonStyle={{ backgroundColor: "#F8AD0B" }}
+              icon={FaClock}
+            />
+            <MenuButton
+              text="Tutorial"
+              buttonStyle={{ backgroundColor: "#3DBEA8" }}
+              icon={FaQuestionCircle}
+            />
+            <MenuButton
+              text="About the Artist"
+              buttonStyle={{ backgroundColor: "#186DBE" }}
+              icon={FaInfoCircle}
+            />
+          </View>
         </View>
       </View>
     );
