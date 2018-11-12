@@ -15,6 +15,8 @@ https://medium.com/one-more-thing-studio/native-react-native-or-pwa-what-should-
 - [Original Github](https://medium.com/@yannickdot/write-once-run-anywhere-with-create-react-native-app-and-react-native-web-ad40db63eed0)
 - [Flex box](https://blog.reactnativecoach.com/understanding-flex-in-react-native-b34dfb4b16d1)
 - [React Icons](https://react-icons.netlify.com/#/icons/fa)
+- [Animations with react-pose](https://medium.com/@joomiguelcunha/amazing-react-animation-with-react-pose-3b67d9eb6e07)
+- [React Camera with HTML5](https://medium.com/20spokes-whiteboard/how-to-approach-a-react-task-using-html5-camera-as-an-example-e67f41d97b2a)
 
 ### How to Add Fonts!
 
