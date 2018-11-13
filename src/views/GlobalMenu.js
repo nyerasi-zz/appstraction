@@ -31,8 +31,10 @@ export default class GlobalMenu extends React.Component {
           }}
         >
           <View style={{ flex: 1, width: "90%", justifyContent: "center" }}>
-            <Title>Welcome to the Hans Hofmann Exhibit</Title>
-            <SubTitle>
+            <Title style={{ textAlign: "center" }}>
+              Welcome to the Hans Hofmann Exhibit
+            </Title>
+            <SubTitle style={{ textAlign: "center" }}>
               A chronology of Hans Hofmann's work and investment to teaching.
             </SubTitle>
           </View>
@@ -64,6 +66,7 @@ export default class GlobalMenu extends React.Component {
               text="About the Artist"
               buttonStyle={{ backgroundColor: "#186DBE" }}
               icon={FaInfoCircle}
+              linksTo="/about-artist"
             />
           </View>
         </View>

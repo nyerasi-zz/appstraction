@@ -12,8 +12,7 @@ export default EStyleSheet.create({
   buttonText: {
     color: "#fff",
     fontSize: 20,
-    fontWeight: "bold",
-    textDecoration: "none"
+    fontWeight: "bold"
   },
   buttonIcon: {
     padding: "0 10"
@@ -34,14 +33,21 @@ export default EStyleSheet.create({
       height: 2
     },
     shadowRadius: 4,
-    shadowOpacity: 0.5,
-
+    shadowOpacity: 0.5
+  },
+  mainText: {
     textAlign: "center",
+    textAlignVertical: "center",
+    fontWeight: "bold",
     fontFamily: "Gotham Book, sans-serif",
     fontSize: 15
   },
-  mainText: { textAlignVertical: "center", fontWeight: "bold" },
-  arrowText: { textAlign: "center", paddingTop: 5 },
+  arrowText: {
+    fontFamily: "Gotham Book, sans-serif",
+    fontSize: 15,
+    textAlign: "center",
+    paddingTop: 5
+  },
   redArrow: {
     color: "red",
     fontWeight: "bold",

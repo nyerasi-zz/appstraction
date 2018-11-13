@@ -5,14 +5,13 @@ export default EStyleSheet.create({
     fontFamily: "Gotham, sans-serif",
     lineHeight: "normal",
     fontSize: 32,
-    textAlign: "center",
-    color: "#1E272E"
+    color: "#1E272E",
+    paddingVertical: 10
   },
   subtitle: {
     fontFamily: "Gotham Book, sans-serif",
     lineHeight: 24,
     fontSize: 16,
-    textAlign: "center",
     color: "#000000"
   }
 });
