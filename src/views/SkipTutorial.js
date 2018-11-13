@@ -25,8 +25,10 @@ export default class SkipTutorial extends React.Component {
           }}
         >
           <View style={{ flex: 1, width: "90%", justifyContent: "center" }}>
-            <Title>Welcome to the Hans Hofmann Exhibit</Title>
-            <SubTitle>
+            <Title style={{ textAlign: "center" }}>
+              Welcome to the Hans Hofmann Exhibit
+            </Title>
+            <SubTitle style={{ textAlign: "center" }}>
               A chronology of Hans Hofmann's work and investment to teaching.
             </SubTitle>
           </View>

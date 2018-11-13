@@ -18,29 +18,41 @@ export default class DefaultHeader extends React.Component {
         >
           <Link to={"/"}>
             <TouchableOpacity>
-              <Text
+              <View
                 style={{
-                  color: "black",
-                  fontSize: 30,
-                  padding: 20
+                  flex: 1,
+                  justifyContent: "flex-start"
                 }}
               >
-                <MdMenu />
-              </Text>
+                <Text
+                  style={{
+                    color: "black",
+                    fontSize: 30,
+                    padding: 20,
+                    textAlignVertical: "bottom"
+                  }}
+                >
+                  <Text style={{ textAlignVertical: "center" }}>
+                    <MdMenu />
+                  </Text>
+                </Text>
+              </View>
             </TouchableOpacity>
           </Link>
         </View>
 
         {/* LOGO */}
         <View style={{ alignItems: "center", alignSelf: "center", flex: 1 }}>
-          <Image
-            style={{
-              width: 100,
-              height: 30,
-              resizeMode: "contain"
-            }}
-            source={require("../../assets/logo.png")}
-          />
+          <Link to={"/"}>
+            <Image
+              style={{
+                width: 100,
+                height: 30,
+                resizeMode: "contain"
+              }}
+              source={require("../../assets/logo.png")}
+            />
+          </Link>
         </View>
 
         {/* Dummy item to balance out centered logo */}
