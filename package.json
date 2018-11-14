@@ -21,7 +21,8 @@
     "react-router-navigation": "^1.0.0-rc.5",
     "react-scripts": "^2.1.1",
     "redux": "^4.0.0",
-    "ws": "^6.1.0"
+    "ws": "^6.1.0",
+    "yarn": "^1.12.3"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {

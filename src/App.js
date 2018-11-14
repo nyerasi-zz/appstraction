@@ -25,6 +25,7 @@ export class App extends React.Component {
             <Route path="/global-menu" component={GlobalMenu} />
             <Route path="/skip-tutorial" component={SkipTutorial} />
             <Route path="/about-artist" component={AboutArtist} />
+            <Route path="/timeline" component={Timeline} />
           </Switch>
         </Router>
       </View>

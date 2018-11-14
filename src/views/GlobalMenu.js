@@ -35,7 +35,7 @@ export default class GlobalMenu extends React.Component {
               Welcome to the Hans Hofmann Exhibit
             </Title>
             <SubTitle style={{ textAlign: "center" }}>
-              A chronology of Hans Hofmann's work and investment to teaching.
+              A chronology of Hans Hofmanns work and investment to teaching.
             </SubTitle>
           </View>
 
@@ -56,6 +56,7 @@ export default class GlobalMenu extends React.Component {
               text="Timeline"
               buttonStyle={{ backgroundColor: "#F8AD0B" }}
               icon={FaClock}
+              linksTo="/timeline"
             />
             <MenuButton
               text="Tutorial"
