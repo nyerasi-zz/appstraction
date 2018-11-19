@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { View, StatusBar } from "react-native";
 import { exampleAction } from "./redux/actions/exampleAction";
 import { Router, Switch, Route } from "./routers/Routing.web";
-import { HomePage, GlobalMenu, SkipTutorial, AboutArtist } from "./views";
+import { HomePage, GlobalMenu, SkipTutorial, AboutArtist, Timeline, Artwork } from "./views";
 
 export class App extends React.Component {
   componentDidMount() {
@@ -26,6 +26,7 @@ export class App extends React.Component {
             <Route path="/skip-tutorial" component={SkipTutorial} />
             <Route path="/about-artist" component={AboutArtist} />
             <Route path="/timeline" component={Timeline} />
+            <Route path="/artwork" component={Artwork} />
           </Switch>
         </Router>
       </View>
