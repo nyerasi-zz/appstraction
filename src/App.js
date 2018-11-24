@@ -13,7 +13,8 @@ import {
   GlobalMenu,
   SkipTutorial,
   AboutArtist,
-  AboutArtwork
+  AboutArtwork,
+  QRCamera
 } from "./views";
 
 export class App extends React.Component {
@@ -32,6 +33,7 @@ export class App extends React.Component {
             <Route path="/skip-tutorial" component={SkipTutorial} />
             <Route path="/about-artist" component={AboutArtist} />
             <Route path="/artworks/:artName" component={AboutArtwork} />
+            <Route path="/camera" component={QRCamera} />
           </Switch>
         </Router>
       </View>

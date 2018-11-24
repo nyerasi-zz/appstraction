@@ -12,6 +12,7 @@
     "react-burger-menu": "^2.5.4",
     "react-devtools-core": "^3.4.3",
     "react-dom": "^16.6.3",
+    "react-html5-camera-photo": "^1.2.9",
     "react-icons": "^3.2.2",
     "react-native": "^0.57.5",
     "react-native-extended-stylesheet": "^0.10.0",
