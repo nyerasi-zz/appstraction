@@ -1,6 +1,5 @@
 import React from "react";
 import { ScrollView, View } from "react-native";
-import Youtube from "react-native-youtube";
 
 import { DefaultHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
@@ -60,19 +59,7 @@ export default class ArtPage extends React.Component {
                     <SubTitle>{artDetails.materials}</SubTitle>
                   </div>
                   <div label="Video">
-                    <Youtube
-                      videoId={artDetails.videoID} // The YouTube video ID
-                      play={true} // control playback of video with true/false
-                      fullscreen={true} // control whether the video should play in fullscreen or inline
-                      loop={true} // control whether the video should loop when ended
-                      onReady={e => this.setState({ isReady: true })}
-                      onChangeState={e => this.setState({ status: e.state })}
-                      onChangeQuality={e =>
-                        this.setState({ quality: e.quality })
-                      }
-                      onError={e => this.setState({ error: e.error })}
-                      style={{ alignSelf: "stretch", height: 300 }}
-                    />
+                    <SubTitle>{artDetails.videoID}</SubTitle>
                   </div>
                 </Accordion>
               </View>
