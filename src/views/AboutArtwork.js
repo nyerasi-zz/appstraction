@@ -42,8 +42,7 @@ export default class ArtPage extends React.Component {
                 <Title>{artDetails.name}</Title>
                 <FullWidthImage
                   style={{}}
-                  source={{ uri: artDetails.photoFile }}
-                  // source={require("../assets/" + artDetails.photoFile)}
+                  source={require("../assets/artworks/" + artDetails.photoFile)}
                   width={700}
                   height={500}
                 />

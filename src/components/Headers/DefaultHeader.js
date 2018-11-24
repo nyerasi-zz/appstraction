@@ -50,7 +50,7 @@ export default class DefaultHeader extends React.Component {
                 height: 30,
                 resizeMode: "contain"
               }}
-              source={require("../../assets/logo.png")}
+              source={require("../../assets/logo/logo.png")}
             />
           </Link>
         </View>
