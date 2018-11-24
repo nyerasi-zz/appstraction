@@ -53,7 +53,7 @@ export default class Accordion extends Component {
     } = this;
 
     return (
-      <div>
+      <div style={{ margin: "10px 0"}}>
         {children.map((child, i) => (
           <AccordionSection
             isOpen={!!openSections[child.props.label]}

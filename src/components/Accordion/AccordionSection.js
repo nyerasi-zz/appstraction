@@ -16,7 +16,7 @@ export default class AccordionSection extends Component {
     return (
       <div
         style={{
-          padding: "5px 10px"
+          padding: "15px 20px"
         }}
       >
         <div onClick={onClick} style={{ cursor: "pointer" }}>
@@ -29,8 +29,9 @@ export default class AccordionSection extends Component {
         {isOpen && (
           <div
             style={{
+              fontFamily: "Gotham Book, sans-serif",
               marginTop: 10,
-              padding: "10px 20px"
+              padding: "20px 0"
             }}
           >
             {this.props.children}

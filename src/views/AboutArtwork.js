@@ -1,5 +1,6 @@
 import React from "react";
 import { ScrollView, View } from "react-native";
+import YouTube from 'react-youtube';
 
 import { DefaultHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
@@ -38,13 +39,11 @@ export default class ArtPage extends React.Component {
           >
             {artDetails ? (
               <View style={{ flex: 1, width: "90%" }}>
-                <Title>{artName}</Title>
+                <Title>{artDetails.name}</Title>
                 <FullWidthImage
                   style={{}}
-                  source={{
-                    uri:
-                      "https://via.placeholder.com/700x500.png?text=Sample+Artwork"
-                  }}
+                  // source={{ uri: "https://via.placeholder.com/700x500.png?text=Sample+Artwork" }}
+                  source={require("../assets/" + artDetails.photoFileName)}
                   width={700}
                   height={500}
                 />
@@ -59,7 +58,16 @@ export default class ArtPage extends React.Component {
                     <SubTitle>{artDetails.materials}</SubTitle>
                   </div>
                   <div label="Video">
-                    <SubTitle>{artDetails.videoID}</SubTitle>
+                      <YouTube
+                          videoId={artDetails.videoID}
+                          opts={{
+                              height: 200,
+                              width: '100%',
+                              playerVars: {
+                                  autoplay: 0
+                              }}}
+                          onReady={event => event.target.pauseVideo()}
+                      />
                   </div>
                 </Accordion>
               </View>
