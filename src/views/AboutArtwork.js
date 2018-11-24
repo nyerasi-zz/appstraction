@@ -58,16 +58,16 @@ export default class ArtPage extends React.Component {
                     <SubTitle>{artDetails.materials}</SubTitle>
                   </div>
                   <div label="Video">
-                      <YouTube
-                          videoId={artDetails.videoID}
-                          opts={{
-                              height: 200,
-                              width: '100%',
-                              playerVars: {
-                                  autoplay: 0
-                              }}}
-                          onReady={event => event.target.pauseVideo()}
-                      />
+                  <YouTube
+                      videoId={artDetails.videoID}
+                      opts={{
+                          height: 200,
+                          width: '100%',
+                          playerVars: {
+                              autoplay: 0
+                          }}}
+                      onReady={event => event.target.pauseVideo()}
+                  />
                   </div>
                 </Accordion>
               </View>
