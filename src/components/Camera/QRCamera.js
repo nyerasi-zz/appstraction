@@ -9,24 +9,14 @@ export default class QRCamera extends React.Component {
             delay: 300,
             result: "No result"
         };
-        this.handleScan = this.handleScan.bind(this);
     }
-    handleScan(data) {
-        if (data) {
-            this.setState({
-                result: data
-            });
-        }
-    }
-    handleError(err) {
-        console.error(err);
-    }
+
     render() {
         return (
             <QrReader
                 delay={this.state.delay}
-                onError={this.handleError}
-                onScan={this.handleScan}
+                onError={this.props.handleError}
+                onScan={this.props.handleScan}
                 facingMode="environment"
                 height={ this.props.height }
                 style={{ width: "100%" }}
@@ -36,5 +26,7 @@ export default class QRCamera extends React.Component {
 }
 
 QRCamera.propTypes = {
-    height: PropTypes.number
+    height: PropTypes.number,
+    handleScan: PropTypes.func,
+    handleError: PropTypes.func
 };

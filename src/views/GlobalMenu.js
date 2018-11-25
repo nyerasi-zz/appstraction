@@ -47,7 +47,7 @@ export default class GlobalMenu extends React.Component {
             }}
           >
             <MenuButton
-              text="Enter the Exhibit"
+              text="Interact with Exhibit"
               buttonStyle={{ backgroundColor: "#D20663" }}
               icon={FaWalking}
               linksTo="/skip-tutorial"
@@ -56,7 +56,7 @@ export default class GlobalMenu extends React.Component {
               text="Timeline"
               buttonStyle={{ backgroundColor: "#F8AD0B" }}
               icon={FaClock}
-              linksTo="/artworks/artwork1"
+              linksTo="/global-menu"
             />
             <MenuButton
               text="Tutorial"

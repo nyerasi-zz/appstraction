@@ -2,7 +2,7 @@ import React from "react";
 import { ScrollView, View } from "react-native";
 import YouTube from 'react-youtube';
 
-import { DefaultHeader } from "../components/Headers";
+import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
 import { Accordion } from "../components/Accordion";
 import { FullWidthImage } from "../components/Images";
@@ -20,7 +20,7 @@ export default class ArtPage extends React.Component {
           backgroundColor: "#F0F0F0"
         }}
       >
-        <DefaultHeader />
+        <BackHeader />
 
         {/* CONTENT */}
         <View

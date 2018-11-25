@@ -393,7 +393,6 @@ module.exports = (_temp = _class = function (_Component) {
         position: 'relative',
         width: '100%',
         paddingTop: '100%',
-        border: "3px solid red",
         height: this.props.height
       };
       var hiddenStyle = { display: 'none' };
@@ -469,4 +468,5 @@ module.exports = (_temp = _class = function (_Component) {
   facingMode: 'environment',
   showViewFinder: true,
   constraints: null,
+
 }, _temp);

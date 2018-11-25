@@ -1,24 +1,33 @@
 import React from 'react'
-import { View } from 'react-native'
-import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { View, Dimensions, PixelRatio } from 'react-native'
 
-import { DefaultHeader } from '../components/Headers'
+import { BackHeader } from '../components/Headers'
 import { QRCamera } from '../components/Camera'
 
 export default class ScanQRCode extends React.Component {
 
-    componentDidMount(){
-        console.log(this.props.containerHeight)
-        console.log(hp("100%"))
+    constructor(props){
+        super(props);
+        this.handleScan = this.handleScan.bind(this);
+        this.handleError = this.handleError.bind(this);
+    }
+
+    handleScan(data) {
+        if (data) {
+            let path = data.substring(data.indexOf('.com') + 4);
+            this.props.history.push(path);
+        }
+    }
+
+    handleError(err) {
+        console.error(err);
     }
 
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <DefaultHeader />
-                <View style={{ flex: 1 }}>
-                    <QRCamera height={hp("100%")} />
-                </View>
+                <BackHeader />
+                <QRCamera handleScan={this.handleScan} handleError={this.handleError} height={ Dimensions.get('window').height / PixelRatio.get() } />
             </View>
         )
     }
