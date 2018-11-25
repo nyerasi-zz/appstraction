@@ -14,7 +14,7 @@ import {
   SkipTutorial,
   AboutArtist,
   AboutArtwork,
-  QRCamera
+  ScanQRCode
 } from "./views";
 
 export class App extends React.Component {
@@ -33,7 +33,7 @@ export class App extends React.Component {
             <Route path="/skip-tutorial" component={SkipTutorial} />
             <Route path="/about-artist" component={AboutArtist} />
             <Route path="/artworks/:artName" component={AboutArtwork} />
-            <Route path="/camera" component={QRCamera} />
+            <Route path="/camera" component={ScanQRCode} />
           </Switch>
         </Router>
       </View>
