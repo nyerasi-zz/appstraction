@@ -1,14 +1,9 @@
 import React from "react";
 import { View } from "react-native";
-import {
-  FaWalking,
-  FaClock,
-  FaQuestionCircle,
-  FaInfoCircle
-} from "react-icons/fa";
+import { FaWalking, FaClock, FaInfoCircle } from "react-icons/fa";
 
 import { MenuButton } from "../components/Button";
-import { DefaultHeader } from "../components/Headers";
+import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
 
 export default class GlobalMenu extends React.Component {
@@ -16,11 +11,10 @@ export default class GlobalMenu extends React.Component {
     return (
       <View
         style={{
-          flex: 1,
-          backgroundColor: "#F0F0F0"
+          flex: 1
         }}
       >
-        <DefaultHeader />
+        <BackHeader />
 
         {/* CONTENT */}
         <View
@@ -50,7 +44,7 @@ export default class GlobalMenu extends React.Component {
               text="Interact with Exhibit"
               buttonStyle={{ backgroundColor: "#D20663" }}
               icon={FaWalking}
-              linksTo="/skip-tutorial"
+              linksTo="/camera"
             />
             <MenuButton
               text="Timeline"
@@ -58,11 +52,11 @@ export default class GlobalMenu extends React.Component {
               icon={FaClock}
               linksTo="/global-menu"
             />
-            <MenuButton
+            {/* <MenuButton
               text="Tutorial"
               buttonStyle={{ backgroundColor: "#3DBEA8" }}
               icon={FaQuestionCircle}
-            />
+            /> */}
             <MenuButton
               text="About the Artist"
               buttonStyle={{ backgroundColor: "#186DBE" }}

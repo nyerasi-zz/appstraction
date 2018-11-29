@@ -10,8 +10,7 @@ export default class SkipTutorial extends React.Component {
     return (
       <View
         style={{
-          flex: 1,
-          backgroundColor: "#F0F0F0"
+          flex: 1
         }}
       >
         <DefaultHeader />

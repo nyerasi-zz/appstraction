@@ -1,12 +1,21 @@
 import React from "react";
 import { ScrollView, View } from "react-native";
-import YouTube from 'react-youtube';
+import EStyleSheet from "react-native-extended-stylesheet";
+import YouTube from "react-youtube";
 
 import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
 import { Accordion } from "../components/Accordion";
 import { FullWidthImage } from "../components/Images";
 import artInfo from "../data/artInfo";
+
+const styles = EStyleSheet.create({
+  mainView: {
+    flex: 1,
+    alignItems: "center",
+    backgroundColor: "$primaryGray"
+  }
+});
 
 export default class ArtPage extends React.Component {
   render() {
@@ -16,19 +25,13 @@ export default class ArtPage extends React.Component {
     return (
       <View
         style={{
-          flex: 1,
-          backgroundColor: "#F0F0F0"
+          flex: 1
         }}
       >
         <BackHeader />
 
         {/* CONTENT */}
-        <View
-          style={{
-            flex: 1,
-            alignItems: "center"
-          }}
-        >
+        <View style={styles.mainView}>
           <ScrollView
             alwaysBounceVertical={true}
             contentContainerStyle={{ alignItems: "center" }}
@@ -57,16 +60,17 @@ export default class ArtPage extends React.Component {
                     <SubTitle>{artDetails.materials}</SubTitle>
                   </div>
                   <div label="Video">
-                  <YouTube
+                    <YouTube
                       videoId={artDetails.videoID}
                       opts={{
-                          height: 200,
-                          width: '100%',
-                          playerVars: {
-                              autoplay: 0
-                          }}}
+                        height: 200,
+                        width: "100%",
+                        playerVars: {
+                          autoplay: 0
+                        }
+                      }}
                       onReady={event => event.target.pauseVideo()}
-                  />
+                    />
                   </div>
                 </Accordion>
               </View>

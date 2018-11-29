@@ -1,11 +1,8 @@
-/*
- * TODO:
- * - See if you can connect redux to save state across different pages!
- **/
-
 import React from "react";
 import { connect } from "react-redux";
 import { View, StatusBar } from "react-native";
+import EStylesheet from "react-native-extended-stylesheet";
+
 import { exampleAction } from "./redux/actions/exampleAction";
 import { Router, Switch, Route } from "./routers/Routing.web";
 import {
@@ -17,6 +14,13 @@ import {
   ScanQRCode
 } from "./views";
 
+const styles = EStylesheet.create({
+  mainView: {
+    flex: 1,
+    backgroundColor: "$primaryGray"
+  }
+});
+
 export class App extends React.Component {
   componentDidMount() {
     StatusBar.setBarStyle("light-content");
@@ -24,7 +28,7 @@ export class App extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={styles.mainView}>
         <Router>
           <Switch hideNavBar={true}>
             {/* Place all views and their URLs here */}
