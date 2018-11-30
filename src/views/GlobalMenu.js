@@ -50,11 +50,7 @@ export default class GlobalMenu extends React.Component {
               text="Timeline"
               buttonStyle={{ backgroundColor: "#F8AD0B" }}
               icon={FaClock}
-<<<<<<< HEAD
               linksTo="/timeline"
-=======
-              linksTo="/global-menu"
->>>>>>> 1ef012f1152858b657936300271fec1a536bfec9
             />
             {/* <MenuButton
               text="Tutorial"

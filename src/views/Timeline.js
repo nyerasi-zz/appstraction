@@ -1,75 +1,79 @@
 import React from "react";
-import { ScrollView, View, Image } from "react-native";
-
-import { DefaultHeader } from "../components/Headers";
+import { ScrollView, View } from "react-native";
+import EStyleSheet from "react-native-extended-stylesheet";
+import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
+import { Accordion } from "../components/Accordion";
+import { FullWidthImage } from "../components/Images";
+import { TimelinePics } from "../components/Images";
+const styles = EStyleSheet.create({
+  mainView: {
+    flex: 1,
+    alignItems: "center",
+    backgroundColor: "$primaryGray"
+  }
+});
 
 export default class Timeline extends React.Component {
   render() {
+    const artName = "Timeline";
+    const artDetails = [];
+
     return (
       <View
         style={{
-          flex: 1,
-          backgroundColor: "#F0F0F0"
+          flex: 1
         }}
       >
-        <DefaultHeader />
+        <BackHeader />
 
         {/* CONTENT */}
-        <View
-          style={{
-            flex: 1,
-            alignItems: "center"
-          }}
-        >
+        <View style={styles.mainView}>
+        <Title>{Timeline}</Title>
           <ScrollView
             alwaysBounceVertical={true}
             contentContainerStyle={{ alignItems: "center" }}
             style={{
-              flex: 1
+              flex: 1,
+              width: "100%"
             }}
           >
-            <View style={{ flex: 1, width: "90%" }}>
-              <Title>Timeline</Title>
-
-              <View
-                style={{
-                  flex: 1,
-                  alignItems: "center"
-                }}
-              >
-                <Image
-                  style={{ width: 200, height: 200 }}
-                  source={require("../assets/HansHofmann.png")}
-                />
-                <Title style={{ fontSize: 25, textAlign: "center" }}>
-                  Timeline{"\n"}(1880-1966)
-                </Title>
-                <SubTitle style={{ paddingVertical: 10 }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam bibendum metus urna, non laoreet eros fringilla in.
-                  Duis at lacinia mi, at iaculis elit. Proin fermentum lacus
-                  tellus, non mollis lacus consequat blandit. Nunc egestas, elit
-                  id vulputate porttitor, eros mi porta dolor, sit amet rutrum
-                  lorem nunc eget purus. Pellentesque non mi justo. Duis nec
-                  auctor lacus. Donec ornare placerat massa, lacinia tempus
-                  dolor pretium vulputate. Class aptent taciti sociosqu ad
-                  litora torquent per conubia nostra, per inceptos himenaeos.
-                  Curabitur pellentesque posuere ipsum in efficitur.
-                  {"\n\n"}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam bibendum metus urna, non laoreet eros fringilla in.
-                  Duis at lacinia mi, at iaculis elit. Proin fermentum lacus
-                  tellus, non mollis lacus consequat blandit. Nunc egestas, elit
-                  id vulputate porttitor, eros mi porta dolor, sit amet rutrum
-                  lorem nunc eget purus. Pellentesque non mi justo. Duis nec
-                  auctor lacus. Donec ornare placerat massa, lacinia tempus
-                  dolor pretium vulputate. Class aptent taciti sociosqu ad
-                  litora torquent per conubia nostra, per inceptos himenaeos.
-                  Curabitur pellentesque posuere ipsum in efficitur.
-                </SubTitle>
+            {artDetails ? (
+              <View style={{ flex: 1, width: "90%" }}>
+                <Accordion allowMultipleOpen>
+                  <div label="1950" isOpen>
+                    <TimelinePics
+                      style={{ width: 200, height: 100 }}
+                      source={require("../assets/sample.png")}
+                      width={700}
+                      height={500}
+                    />
+                    <TimelinePics
+                      style={{ width: 200, height: 100 }}
+                      source={require("../assets/raisonne3.jpg")}
+                      width={700}
+                      height={500}
+                    />
+                    <TimelinePics
+                      style={{ width: 200, height: 100 }}
+                      source={require("../assets/sample2.jpg")}
+                      width={700}
+                      height={500}
+                    />
+                  </div>
+                  <div label="1960">
+                    <SubTitle>{'art'}</SubTitle>
+                  </div>
+                  <div label="1970">
+                    <SubTitle>{'art'}</SubTitle>
+                  </div>
+                  <div label="1980">
+                  </div>
+                </Accordion>
               </View>
-            </View>
+            ) : (
+              <Title>Artwork Not Found</Title>
+            )}
           </ScrollView>
         </View>
       </View>

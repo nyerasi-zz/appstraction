@@ -5,16 +5,14 @@ import EStylesheet from "react-native-extended-stylesheet";
 
 import { exampleAction } from "./redux/actions/exampleAction";
 import { Router, Switch, Route } from "./routers/Routing.web";
-<<<<<<< HEAD
-import { HomePage, GlobalMenu, SkipTutorial, AboutArtist, Timeline, Artwork } from "./views";
-=======
 import {
   HomePage,
   GlobalMenu,
   SkipTutorial,
   AboutArtist,
   AboutArtwork,
-  ScanQRCode
+  ScanQRCode,
+  Timeline
 } from "./views";
 
 const styles = EStylesheet.create({
@@ -23,8 +21,6 @@ const styles = EStylesheet.create({
     backgroundColor: "$primaryGray"
   }
 });
->>>>>>> 1ef012f1152858b657936300271fec1a536bfec9
-
 export class App extends React.Component {
   componentDidMount() {
     StatusBar.setBarStyle("light-content");
@@ -40,13 +36,9 @@ export class App extends React.Component {
             <Route path="/global-menu" component={GlobalMenu} />
             <Route path="/skip-tutorial" component={SkipTutorial} />
             <Route path="/about-artist" component={AboutArtist} />
-<<<<<<< HEAD
             <Route path="/timeline" component={Timeline} />
-            <Route path="/artwork" component={Artwork} />
-=======
             <Route path="/artworks/:artName" component={AboutArtwork} />
             <Route path="/camera" component={ScanQRCode} />
->>>>>>> 1ef012f1152858b657936300271fec1a536bfec9
           </Switch>
         </Router>
       </View>

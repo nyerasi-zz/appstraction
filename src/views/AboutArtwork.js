@@ -1,8 +1,6 @@
 import React from "react";
 import { ScrollView, View } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
-import YouTube from "react-youtube";
-
 import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
 import { Accordion } from "../components/Accordion";
@@ -60,17 +58,6 @@ export default class ArtPage extends React.Component {
                     <SubTitle>{artDetails.materials}</SubTitle>
                   </div>
                   <div label="Video">
-                    <YouTube
-                      videoId={artDetails.videoID}
-                      opts={{
-                        height: 200,
-                        width: "100%",
-                        playerVars: {
-                          autoplay: 0
-                        }
-                      }}
-                      onReady={event => event.target.pauseVideo()}
-                    />
                   </div>
                 </Accordion>
               </View>
