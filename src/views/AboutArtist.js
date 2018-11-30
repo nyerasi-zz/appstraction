@@ -45,27 +45,43 @@ export default class AboutArtist extends React.Component {
                   Hans Hofmann{"\n"}(1880-1966)
                 </Title>
                 <SubTitle style={{ paddingVertical: 10 }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam bibendum metus urna, non laoreet eros fringilla in.
-                  Duis at lacinia mi, at iaculis elit. Proin fermentum lacus
-                  tellus, non mollis lacus consequat blandit. Nunc egestas, elit
-                  id vulputate porttitor, eros mi porta dolor, sit amet rutrum
-                  lorem nunc eget purus. Pellentesque non mi justo. Duis nec
-                  auctor lacus. Donec ornare placerat massa, lacinia tempus
-                  dolor pretium vulputate. Class aptent taciti sociosqu ad
-                  litora torquent per conubia nostra, per inceptos himenaeos.
-                  Curabitur pellentesque posuere ipsum in efficitur.
+                  Hans Hofmann (1880–1966) is one of the most important figures
+                  of postwar American art. Celebrated for his exuberant,
+                  color-filled canvases, and renowned as an influential teacher
+                  for generations of artists—first in his native Germany, then
+                  in New York and Provincetown—Hofmann played a pivotal role in
+                  the development of Abstract Expressionism.
                   {"\n\n"}
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam bibendum metus urna, non laoreet eros fringilla in.
-                  Duis at lacinia mi, at iaculis elit. Proin fermentum lacus
-                  tellus, non mollis lacus consequat blandit. Nunc egestas, elit
-                  id vulputate porttitor, eros mi porta dolor, sit amet rutrum
-                  lorem nunc eget purus. Pellentesque non mi justo. Duis nec
-                  auctor lacus. Donec ornare placerat massa, lacinia tempus
-                  dolor pretium vulputate. Class aptent taciti sociosqu ad
-                  litora torquent per conubia nostra, per inceptos himenaeos.
-                  Curabitur pellentesque posuere ipsum in efficitur.
+                  Between 1900 and 1930, Hofmann’s early studies, decades of
+                  painting, and schools of art took him to Munich, to Paris,
+                  then back to Munich. By 1933, and for the next four decades,
+                  he lived in New York and in Provincetown. Hofmann’s evolution
+                  from foremost modern art teacher to pivotal modern artist
+                  brought him into contact with many of the foremost artists,
+                  critics, and dealers of the twentieth century: Henri Matisse,
+                  Pablo Picasso, Georges Braque, Wassily Kandinsky, Sonia and
+                  Robert Delauney, Betty Parsons, Peggy Guggenheim, Lee Krasner,
+                  Jackson Pollock, and many others. His successful career was
+                  shepherded by the postwar modern art dealer Sam Kootz, secured
+                  by the art historian and critic Clement Greenberg, and
+                  anchored by the professional and personal support of his first
+                  wife, Maria “Miz” Wolfegg (1885–1963).
+                  {"\n\n"}
+                  Already 64 by the time of his first solo exhibition at Art of
+                  This Century in New York in 1944, Hofmann balanced the demands
+                  of teaching and painting until he closed his school in 1956.
+                  Doing so enabled him to renew focus on his own painting at
+                  during the heyday of Abstract Expressionism, and for the next
+                  twenty years, Hofmann’s voluminous output—powerfully
+                  influenced by Matisse’s use of color and Cubism’s displacement
+                  of form—developed into an artistic approach and theory he
+                  called “push and pull,” which he described as interdependent
+                  relationships between form, color, and space. From his early
+                  landscapes of the 1930s, to his “slab” paintings of the late
+                  1950s, and his abstract works at the end of his career upon
+                  his death in 1966, Hofmann continued to create boldly
+                  experimental color combinations and formal contrasts that
+                  transcended genre and style.
                 </SubTitle>
               </View>
             </View>

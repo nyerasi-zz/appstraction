@@ -50,11 +50,11 @@ export default class ArtPage extends React.Component {
                   height={500}
                 />
                 <Accordion allowMultipleOpen>
-                  <div label="Technique" isOpen>
-                    <SubTitle>{artDetails.technique}</SubTitle>
-                  </div>
-                  <div label="Background">
+                  <div label="Background" isOpen>
                     <SubTitle>{artDetails.background}</SubTitle>
+                  </div>
+                  <div label="Technique">
+                    <SubTitle>{artDetails.technique}</SubTitle>
                   </div>
                   <div label="Materials">
                     <SubTitle>{artDetails.materials}</SubTitle>
