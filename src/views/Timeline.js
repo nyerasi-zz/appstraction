@@ -62,12 +62,64 @@ export default class Timeline extends React.Component {
                     />
                   </div>
                   <div label="1960">
-                    <SubTitle>{'art'}</SubTitle>
+                  <TimelinePics
+                    style={{ width: 200, height: 100 }}
+                    source={require("../assets/sample.png")}
+                    width={700}
+                    height={500}
+                  />
+                  <TimelinePics
+                    style={{ width: 200, height: 100 }}
+                    source={require("../assets/raisonne3.jpg")}
+                    width={700}
+                    height={500}
+                  />
+                  <TimelinePics
+                    style={{ width: 200, height: 100 }}
+                    source={require("../assets/sample2.jpg")}
+                    width={700}
+                    height={500}
+                  />
                   </div>
                   <div label="1970">
-                    <SubTitle>{'art'}</SubTitle>
+                  <TimelinePics
+                    style={{ width: 200, height: 100 }}
+                    source={require("../assets/sample.png")}
+                    width={700}
+                    height={500}
+                  />
+                  <TimelinePics
+                    style={{ width: 200, height: 100 }}
+                    source={require("../assets/raisonne3.jpg")}
+                    width={700}
+                    height={500}
+                  />
+                  <TimelinePics
+                    style={{ width: 200, height: 100 }}
+                    source={require("../assets/sample2.jpg")}
+                    width={700}
+                    height={500}
+                  />
                   </div>
                   <div label="1980">
+                  <TimelinePics
+                    style={{ width: 200, height: 100 }}
+                    source={require("../assets/sample.png")}
+                    width={700}
+                    height={500}
+                  />
+                  <TimelinePics
+                    style={{ width: 200, height: 100 }}
+                    source={require("../assets/raisonne3.jpg")}
+                    width={700}
+                    height={500}
+                  />
+                  <TimelinePics
+                    style={{ width: 200, height: 100 }}
+                    source={require("../assets/sample2.jpg")}
+                    width={700}
+                    height={500}
+                  />
                   </div>
                 </Accordion>
               </View>
