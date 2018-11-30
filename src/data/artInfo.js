@@ -2,6 +2,7 @@ const artInfo = {
   artwork1: {
     name: "Combinable Wall, I and II",
     photoFile: "Combination12.jpg",
+    audioFile: "Hofmann_Combinable-Wall-I-II.m4a",
     technique:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam bibendum metus urna, non laoreet eros fringilla in. Duis at lacinia mi, at iaculis elit. Proin fermentum lacus tellus, non mollis lacus consequat blandit. Nunc egestas, elit id vulputate porttitor, eros mi porta dolor, sit amet rutrum lorem nunc eget purus. Pellentesque non mi justo. Duis nec auctor lacus. Donec ornare placerat massa, lacinia tempus dolor pretium vulputate. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur pellentesque posuere ipsum in efficitur.",
     background:

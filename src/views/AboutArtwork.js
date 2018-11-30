@@ -2,6 +2,7 @@ import React from "react";
 import { ScrollView, View } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import YouTube from "react-youtube";
+import ReactAudioPlayer from "react-audio-player";
 
 import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
@@ -52,6 +53,12 @@ export default class ArtPage extends React.Component {
                 <Accordion allowMultipleOpen>
                   <div label="Background" isOpen>
                     <SubTitle>{artDetails.background}</SubTitle>
+                  </div>
+                  <div label="Audio">
+                    <ReactAudioPlayer
+                      src={require("../assets/audio/" + artDetails.audioFile)}
+                      controls
+                    />
                   </div>
                   <div label="Technique">
                     <SubTitle>{artDetails.technique}</SubTitle>
