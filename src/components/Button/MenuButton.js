@@ -6,9 +6,7 @@ import { Link } from "../../routers/Routing";
 import styles from "./styles";
 
 class MenuButton extends React.Component {
-  testPress() {
-    console.log("pressed button");
-  }
+  testPress() {}
 
   render() {
     const Icon = this.props.icon;

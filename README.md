@@ -17,6 +17,11 @@ https://medium.com/one-more-thing-studio/native-react-native-or-pwa-what-should-
 - [React Icons](https://react-icons.netlify.com/#/icons/fa)
 - [Animations with react-pose](https://medium.com/@joomiguelcunha/amazing-react-animation-with-react-pose-3b67d9eb6e07)
 - [React Camera with HTML5](https://medium.com/20spokes-whiteboard/how-to-approach-a-react-task-using-html5-camera-as-an-example-e67f41d97b2a)
+- [Accordian Menu](https://medium.com/@mheavers/collapsible-accordion-style-nav-in-react-native-with-scrolling-8d624842b247)
+- [Sliding Menu + Sliding Homepage Tutorial](https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm)
+    - [Another link](https://medium.com/front-end-developers/sliding-react-components-4873e232907e)
+    - [Third](https://github.com/reactjs/react-transition-group/issues/136)
+    - [Fourth](https://medium.com/@joomiguelcunha/amazing-react-animation-with-react-pose-3b67d9eb6e07)
 
 ### How to Add Fonts!
 

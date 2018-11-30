@@ -10,8 +10,7 @@ export default class SkipTutorial extends React.Component {
     return (
       <View
         style={{
-          flex: 1,
-          backgroundColor: "#F0F0F0"
+          flex: 1
         }}
       >
         <DefaultHeader />
@@ -43,10 +42,12 @@ export default class SkipTutorial extends React.Component {
             <SkipTutorialButton
               mainText="I've been here before."
               arrowText="Skip Tutorial"
+              linkTo="/camera"
             />
             <SkipTutorialButton
               mainText="This is my first time here!"
               arrowText="View brief tutorial"
+              linkTo="/skip-tutorial"
             />
           </View>
         </View>

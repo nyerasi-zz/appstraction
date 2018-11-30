@@ -6,7 +6,8 @@ export default EStyleSheet.create({
     lineHeight: "normal",
     fontSize: 32,
     color: "#1E272E",
-    paddingVertical: 10
+    paddingTop: 10,
+    paddingBottom: 20
   },
   subtitle: {
     fontFamily: "Gotham Book, sans-serif",

@@ -9,7 +9,7 @@ export default class Logo extends React.Component {
         <Image
           style={[styles.headerImage]}
           resizeMode={"contain"}
-          source={require("../../assets/bampfa_logo.png")}
+          source={require("../../assets/logo/bampfa_logo.png")}
         />
       </View>
     );

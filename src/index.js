@@ -14,11 +14,11 @@ EStyleSheet.build({
   $primaryOrange: "#D57A66",
   $primaryGreen: "#00bd9d",
   $primaryPurple: "#9e768f",
+  $primaryGray: "#FAFAFA",
 
   $white: "#fff",
   $border: "#e2e2e2",
   $inputText: "#797979",
-  $lightGray: "#f0f0f0",
   $darkText: "#343434"
 });
 

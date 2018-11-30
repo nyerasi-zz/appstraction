@@ -1,3 +1,4 @@
 import DefaultHeader from "./DefaultHeader";
+import BackHeader from './BackHeader'
 
-export { DefaultHeader };
+export { BackHeader, DefaultHeader };

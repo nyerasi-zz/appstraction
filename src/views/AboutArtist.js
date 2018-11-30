@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView, View, Image } from "react-native";
 
-import { DefaultHeader } from "../components/Headers";
+import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
 
 export default class AboutArtist extends React.Component {
@@ -9,11 +9,10 @@ export default class AboutArtist extends React.Component {
     return (
       <View
         style={{
-          flex: 1,
-          backgroundColor: "#F0F0F0"
+          flex: 1
         }}
       >
-        <DefaultHeader />
+        <BackHeader />
 
         {/* CONTENT */}
         <View
