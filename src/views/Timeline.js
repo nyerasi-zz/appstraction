@@ -29,7 +29,7 @@ export default class Timeline extends React.Component {
 
         {/* CONTENT */}
         <View style={styles.mainView}>
-        <Title>{Timeline}</Title>
+        <Title>{'Timeline'}</Title>
           <ScrollView
             alwaysBounceVertical={true}
             contentContainerStyle={{ alignItems: "center" }}

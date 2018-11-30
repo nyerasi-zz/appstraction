@@ -59,7 +59,7 @@ export default class FullWidthImage extends Component {
             {
               width: 400,
               height: 100,
-              paddingBottom: 100
+              margin: 20
             }
           ]}
         />
