@@ -1,5 +1,6 @@
 import React from "react";
 import { ScrollView, View, Image } from "react-native";
+import YouTube from "react-youtube";
 
 import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
@@ -83,6 +84,17 @@ export default class AboutArtist extends React.Component {
                   experimental color combinations and formal contrasts that
                   transcended genre and style.
                 </SubTitle>
+                <YouTube
+                  videoId="vLRKFJxGh10"
+                  opts={{
+                    height: 200,
+                    width: "100%",
+                    playerVars: {
+                      autoplay: 0
+                    }
+                  }}
+                  onReady={event => event.target.pauseVideo()}
+                />
               </View>
             </View>
           </ScrollView>

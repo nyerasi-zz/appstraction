@@ -13,7 +13,11 @@ class MenuButton extends React.Component {
     const link = this.props.linksTo ? this.props.linksTo : "";
 
     return (
-      <Link to={link} style={{ width: "100%", textDecoration: "none" }}>
+      <Link
+        to={link}
+        onClick={this.props.onClick}
+        style={{ width: "100%", textDecoration: "none" }}
+      >
         <View
           style={{
             alignItems: "center"
@@ -38,7 +42,8 @@ MenuButton.propTypes = {
   buttonStyle: PropTypes.object,
   text: PropTypes.string,
   icon: PropTypes.any,
-  linksTo: PropTypes.string
+  linksTo: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default MenuButton;
