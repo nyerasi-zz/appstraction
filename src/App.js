@@ -11,7 +11,8 @@ import {
   SkipTutorial,
   AboutArtist,
   AboutArtwork,
-  ScanQRCode
+  ScanQRCode,
+  Admin
 } from "./views";
 
 const styles = EStylesheet.create({
@@ -38,6 +39,7 @@ export class App extends React.Component {
             <Route path="/about-artist" component={AboutArtist} />
             <Route path="/artworks/:artName" component={AboutArtwork} />
             <Route path="/camera" component={ScanQRCode} />
+            <Route path="/admin" component={Admin} />
           </Switch>
         </Router>
       </View>

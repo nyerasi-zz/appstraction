@@ -34,13 +34,18 @@ export default class ScanQRCode extends React.Component {
     };
   }
 
-  handleScan(data) {
+  handleScan(data){
+    console.log(data);
     if (data) {
-      let searchString = ".com";
-      let path = data.substring(
-        data.indexOf(searchString) + searchString.length
-      );
-      this.props.history.push(path);
+      let searchString = "https://bampfa.herokuapp.com";
+      let index;
+
+      if ((index = data.indexOf(searchString)) !== -1){
+          let path = data.substring(index + searchString.length);
+          this.props.history.push(path);
+      } else {
+          this.props.history.push("artworks/invalid-qr");
+      }
     }
   }
 
