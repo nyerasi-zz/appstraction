@@ -67,40 +67,53 @@ export default class ArtPage extends React.Component {
         viewToRender =
           (<View style={{ flex: 1, width: "90%" }}>
             <Title>{artDetails.name}</Title>
-            <FullWidthImage
-                style={{}}
-                source={{uri: artDetails.photoFile}}
-                width={700}
-                height={500}
-            />
+
+            {artDetails.photoFile ?
+                <FullWidthImage
+                    style={{}}
+                    source={{uri: artDetails.photoFile}}
+                    width={700}
+                    height={500}
+                /> : null }
+
             <Accordion allowMultipleOpen>
-              <div label="Background" isOpen>
-                <SubTitle>{artDetails.background}</SubTitle>
-              </div>
-              <div label="Audio">
-                <audio controls>
-                  <source src={artDetails.audioFile} />
-                </audio>
-              </div>
-              <div label="Technique">
-                <SubTitle>{artDetails.technique}</SubTitle>
-              </div>
-              <div label="Materials">
-                <SubTitle>{artDetails.materials}</SubTitle>
-              </div>
-              <div label="Video">
-                <YouTube
-                    videoId={artDetails.videoID}
-                    opts={{
-                        height: 200,
-                        width: "100%",
-                        playerVars: {
-                            autoplay: 0
-                        }
-                    }}
-                    onReady={event => event.target.pauseVideo()}
-                />
-              </div>
+
+                {artDetails.background ?
+                    <div label="Background" isOpen>
+                        <SubTitle>{artDetails.background}</SubTitle>
+                    </div> : null }
+
+                {artDetails.audioFile ?
+                    <div label="Audio">
+                        <audio controls>
+                          <source src={artDetails.audioFile} />
+                        </audio>
+                    </div> : null }
+
+                {artDetails.technique ?
+                    <div label="Technique">
+                        <SubTitle>{artDetails.technique}</SubTitle>
+                    </div> : null }
+
+                {artDetails.materials ?
+                    <div label="Materials">
+                    <SubTitle>{artDetails.materials}</SubTitle>
+                    </div> : null }
+
+                {artDetails.videoID ?
+                    <div label="Video">
+                        <YouTube
+                            videoId={artDetails.videoID}
+                            opts={{
+                                height: 200,
+                                width: "100%",
+                                playerVars: {
+                                    autoplay: 0
+                                }
+                            }}
+                            onReady={event => event.target.pauseVideo()}
+                        />
+                    </div> : null }
             </Accordion>
           </View>)
         ;

@@ -1,11 +1,13 @@
 {
   "plugins": [
-    "@babel/plugin-transform-flow-strip-types",
-    "@babel/plugin-proposal-class-properties"
+    "babel-preset-expo",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-flow-strip-types"
   ],
   "presets": [
     "@babel/preset-env",
     "module:metro-react-native-babel-preset",
+    "babel-preset-react-native",
     "@babel/preset-react",
     "@babel/typescript",
     "@babel/preset-flow"
@@ -13,6 +15,8 @@
   "env": {
     "development": {
       "plugins": [
+        "transform-object-rest-spread",
+        "transform-react-jsx-source",
         "@babel/plugin-proposal-object-rest-spread",
         "@babel/plugin-transform-react-jsx-source",
         "@babel/plugin-proposal-class-properties"
