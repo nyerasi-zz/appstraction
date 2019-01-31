@@ -43,7 +43,7 @@ export default class AccordionSection extends Component {
 }
 
 AccordionSection.propTypes = {
-  children: PropTypes.instanceOf(Object).isRequired,
+  children: PropTypes.instanceOf(Object),
   isOpen: PropTypes.bool.isRequired,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired

@@ -1,28 +1,48 @@
 import React from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import { Button, Image, View, Text, TextInput } from 'react-native';
+import { ScrollView, Button, Image, View, Text, TextInput, TouchableHighlight } from 'react-native';
 import QRCode from 'qrcode-svg';
-// import SvgUri from 'react-native-svg-uri';
+import Modal from 'react-modal';
 
 import { BackHeader } from '../components/Headers';
+import { FullWidthImage } from '../components/Images';
 import { SubTitle } from '../components/Text';
+import { AutoGrowTextInput } from '../components/Inputs';
+import { FileUploader } from '../components/Uploader';
 import firebase from '../data/firebase';
 
 const styles = EStyleSheet.create({
     textInput: {
         height: 40,
-        width: '90%',
         borderColor: 'gray',
         borderWidth: 1,
-        marginTop: 8
+        marginTop: 8,
+        padding: 10
     },
+    mainView: {
+        backgroundColor: '$primaryGray'
+    }
 });
 
 export default class AdminEditArtwork extends React.Component {
 
     state = {
         urlName: "",
-        data: -1,
+        name: "",
+        background: "",
+        materials: "",
+        technique: "",
+        videoID: "",
+        audioFileLink: "",
+        audioFileName: "",
+        photoFileLink: "",
+        photoFileName: "",
+
+        modalVisible: false,
+        dataLoaded: false,
+        invalidUrlErrorMessage: null,
+        saveResult: null,
+        disableLivePreview: false,
     };
 
     componentDidMount(){
@@ -40,16 +60,55 @@ export default class AdminEditArtwork extends React.Component {
                 let artDetails = snapshot.val()[urlName];
 
                 this.setState({
-                    data: artDetails
+                    dataLoaded: true,
+                    name: artDetails.name,
+                    background: artDetails.background,
+                    materials: artDetails.materials,
+                    technique: artDetails.technique,
+                    videoID: artDetails.videoID,
+                    audioFileLink: artDetails.audioFileLink,
+                    audioFileName: artDetails.audioFileName,
+                    photoFileLink: artDetails.photoFileLink,
+                    photoFileName: artDetails.photoFileName,
                 });
-                console.log(artDetails)
             })
             .catch((error) => {
                 this.setState({
-                    data: null
+                    dataLoaded: true,
+                    name: "",
+                    background: "",
+                    materials: "",
+                    technique: "",
+                    videoID: "",
+                    audioFileLink: "",
+                    audioFileName: "",
+                    photoFileLink: "",
+                    photoFileName: "",
                 });
             });
     }
+
+    disableLivePreviewButton = () => {
+        this.setState({
+            disableLivePreview: true,
+            saveResult: null
+        })
+    };
+
+    isValidUrl = (val) => {
+        return !val.split("").some(ch => "[]/.#$".includes(ch));
+    };
+
+    handleNewUrl = (newUrl) => {
+        this.setState({ urlName: newUrl });
+        this.disableLivePreviewButton();
+
+        // check for invalid firebase characters
+        if (!this.isValidUrl(newUrl))
+            this.setState({ invalidUrlErrorMessage: "Invalid URL, please try again" });
+        else
+            this.setState({ invalidUrlErrorMessage: null });
+    };
 
     downloadQRCode = () => {
         const qrCode = new QRCode({
@@ -69,9 +128,37 @@ export default class AdminEditArtwork extends React.Component {
         element.click();
     };
 
+    saveToFirebase = () => {
+        if (this.state.invalidUrlErrorMessage){
+            alert(this.state.invalidUrlErrorMessage);
+            return;
+        }
+
+        // copy state, remove unrelated keys
+        let newState = JSON.parse(JSON.stringify(this.state));
+        delete newState.dataLoaded;
+        delete newState.invalidUrlErrorMessage;
+        delete newState.modalVisible;
+        delete newState.saveResult;
+        delete newState.disableLivePreview;
+
+        firebase.database().ref(this.state.urlName)
+            .update(newState, function(error) {
+                if (error) {
+                    // The write failed...
+                    this.setState({ saveResult: "The save failed. Please try again.\n" + error })
+                } else {
+                    // Data saved successfully!
+                    this.setState({ saveResult: "Save successful!" })
+                }
+            }.bind(this));
+
+        this.setState({ disableLivePreview: false });
+    };
+
     render(){
 
-        const data = this.state.data;
+        console.log(this.state)
 
         // LOADING ICON
         let viewToRender = <Image
@@ -81,55 +168,223 @@ export default class AdminEditArtwork extends React.Component {
 
         // EDITING VIEW
         const EditingView = (
-            <View style={{ flex: 1, paddingHorizontal: "10%" }}>
-                <SubTitle>Url Name</SubTitle>
+            <ScrollView
+                alwaysBounceVertical={true}
+                style={{ flex: 1, paddingHorizontal: "10%" }}
+            >
+
+                <Modal
+                    isOpen={this.state.modalVisible}
+                    onRequestClose={() => {this.setState({ modalVisible: false })}}
+                    style={{
+                        content : {
+                            top: '50%',
+                            left: '50%',
+                            right: 'auto',
+                            bottom: 'auto',
+                            marginRight: '-50%',
+                            transform: 'translate(-50%, -50%)'
+                        }
+                    }}
+                    contentLabel="New Artwork"
+                    ariaHideApp={false}
+                >
+                    <View style={{ flex: 0, flexDirection: "row", justifyContent: "flex-end" }}>
+                        <TouchableHighlight
+                            onPress={() => {
+                                this.setState({ modalVisible: false })
+                            }}>
+                            <Text><b>X</b></Text>
+                        </TouchableHighlight>
+                    </View>
+
+                    <View style={{ flex: 1, alignContent: "center"}}>
+                        <SubTitle>Did You Save?<br /></SubTitle>
+                        <br />
+                        <Button
+                            onPress={this.props.history.goBack}
+                            title="Yes"
+                            color="#4CD964"
+                        />
+                        <Button
+                            onPress={() => this.setState({ modalVisible: false })}
+                            title="No"
+                            color="#DC5249"
+                        />
+                    </View>
+                </Modal>
+
+                <Text style={{ textAlign: "right" }}>
+                    <Button
+                        title="View Live Page"
+                        onPress={() => this.props.history.push("/artworks/" + this.state.urlName)}
+                        color="#4CD964"
+                        disabled={this.state.disableLivePreview}
+                    />
+                    {this.state.disableLivePreview && <Text><br />Press save to view live page.</Text>}
+                </Text>
+                <br />
+
+                <SubTitle>Unique Url Extension</SubTitle>
                 <TextInput
                     style={styles.textInput}
-                    autoCapitalize="none"
-                    placeholder="  Url Name"
-                    onChangeText={urlName => this.setState({ urlName })}
+                    placeholder="Url Name"
+                    onChangeText={this.handleNewUrl}
                     value={this.state.urlName}
                 />
-                <Text>Warning: QR Codes are generated based on this value.</Text>
-                <Text><a href={"/artworks/" + this.state.urlName}>Preview Link</a></Text>
+                {this.state.invalidUrlErrorMessage &&
+                <Text style={{ color: 'red' }}>
+                    {this.state.invalidUrlErrorMessage}
+                </Text>}
+                <Text>
+                    Warning: QR Codes are generated based on this value. You may need to re-print the QR code
+                    if you change it.<br />
+                    Also, changing this value will generate an entirely new entry (the old one will still exist).
+                </Text>
                 <br />
 
                 <SubTitle>QR Code</SubTitle>
                 <Text>
-                    <Button title="Download SVG" onPress={this.downloadQRCode} />
+                    <Button title="Generate QR Code" onPress={this.downloadQRCode} />
                 </Text>
                 <br />
 
                 <SubTitle>Artwork Title</SubTitle>
+                <TextInput
+                    style={styles.textInput}
+                    placeholder="Artwork Title"
+                    onChangeText={name => {
+                        this.disableLivePreviewButton();
+                        this.setState({ name });
+                    }}
+                    value={this.state.name}
+                />
                 <br />
 
                 <SubTitle>Background</SubTitle>
+                <AutoGrowTextInput
+                    style={styles.textInput}
+                    placeholder="Background"
+                    onChangeText={background => {
+                        this.disableLivePreviewButton();
+                        this.setState({ background })
+                    }}
+                    value={this.state.background}
+                />
                 <br />
 
                 <SubTitle>Materials</SubTitle>
+                <AutoGrowTextInput
+                    style={styles.textInput}
+                    placeholder="Materials"
+                    onChangeText={materials => {
+                        this.disableLivePreviewButton();
+                        this.setState({ materials })
+                    }}
+                    value={this.state.materials}
+                />
                 <br />
 
                 <SubTitle>Technique</SubTitle>
+                <AutoGrowTextInput
+                    style={styles.textInput}
+                    placeholder="Technique"
+                    onChangeText={technique => {
+                        this.disableLivePreviewButton();
+                        this.setState({ technique })
+                    }}
+                    value={this.state.technique}
+                />
                 <br />
 
                 <SubTitle>Video ID</SubTitle>
+                <TextInput
+                    style={styles.textInput}
+                    placeholder="Youtube Video ID"
+                    onChangeText={videoID => {
+                        this.disableLivePreviewButton();
+                        this.setState({ videoID })
+                    }}
+                    value={this.state.videoID}
+                />
+                <Text>Note: This is the unique ~11 character Youtube ID in the link, as found here:<br />
+                    <ul>
+                        <li>https://www.youtube.com/watch?v=<b>VIDEO_ID</b></li>
+                        <li>https://www.youtu.be/<b>VIDEO_ID</b></li>
+                    </ul>
+                </Text>
                 <br />
 
                 <SubTitle>Audio File</SubTitle>
+                <Text>Currently loaded: {this.state.audioFileLink !== "" ?
+                    <div label="Audio">
+                        <audio controls>
+                            <source src={this.state.audioFileLink} />
+                        </audio>
+                    </div> : <b>None</b>}
+                </Text>
+                <Text>Replace with:</Text>
+                <FileUploader
+                    savePath={this.state.urlName}
+                    fileType="audio"
+                    storeDownloadLink={(downloadLink, fileName) => {
+                        this.disableLivePreviewButton();
+                        this.setState({
+                            audioFileLink: downloadLink,
+                            audioFileName: fileName
+                        });
+                    }}
+                />
                 <br />
 
                 <SubTitle>Photo File</SubTitle>
+                <Text>Currently loaded: {this.state.photoFileLink !== "" ?
+                    <FullWidthImage
+                        style={{ width: "100%" }}
+                        source={{uri: this.state.photoFileLink}}
+                        width={400}
+                        height={300}
+                    /> : <b>None</b>}
+                </Text>
+                <Text>Replace with:</Text>
+                <FileUploader
+                    savePath={this.state.urlName}
+                    fileType="photo"
+                    storeDownloadLink={(downloadLink, fileName) => {
+                        this.disableLivePreviewButton();
+                        this.setState({
+                            photoFileLink: downloadLink,
+                            photoFileName: fileName
+                        });
+                    }}
+                />
                 <br />
 
-            </View>
+                <Button
+                    title="Save Content"
+                    onPress={this.saveToFirebase}
+                    color="#4CD964"
+                />
+                {this.state.saveResult &&
+                <Text>
+                    {this.state.saveResult}
+                </Text>}
+                <br />
+                <br />
+
+            </ScrollView>
         );
 
-        // if -1, show loading icon
-        if (data !== -1) viewToRender = EditingView;
+        if (this.state.dataLoaded) viewToRender = EditingView;
 
         return (
-            <View style={{ flex: 1 }} >
-                <BackHeader />
+            <View style={[styles.mainView, { flex: 1 }]} >
+                <BackHeader onClick={
+                    this.state.disableLivePreview ?
+                    (() => {
+                        this.setState({ modalVisible: true })
+                    }) : null
+                } />
                 <View style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}>
                     {viewToRender}
                 </View>

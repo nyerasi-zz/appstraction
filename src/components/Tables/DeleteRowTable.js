@@ -32,7 +32,7 @@ export default class DeleteRowTable extends React.Component {
                             onPress={() => this.props.onPress(item)}
                         >
                             <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
-                                <Text>{item.key}</Text>
+                                <Text>/{item.key}</Text>
                                 <Button
                                     style={styles.deleteButton}
                                     title="Delete"

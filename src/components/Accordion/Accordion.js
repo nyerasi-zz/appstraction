@@ -13,11 +13,13 @@ export default class Accordion extends Component {
 
     const openSections = {};
 
-    this.props.children.forEach(child => {
-      if (child.props.isOpen) {
-        openSections[child.props.label] = true;
-      }
-    });
+    if (this.props.children){
+        this.props.children.forEach(child => {
+            if (typeof child === 'object' && child !== null && child.props.isOpen) {
+                openSections[child.props.label] = true;
+            }
+        });
+    }
 
     this.state = { openSections };
   }
@@ -52,12 +54,15 @@ export default class Accordion extends Component {
       state: { openSections }
     } = this;
 
+    // filter out non-object children
+    let objectChildren = children.filter(child => child instanceof Object);
+
     return (
       <div style={{ margin: "10px 0"}}>
-        {children.map((child, i) => (
+        {this.props.children && objectChildren.map((child, i) => (
           <AccordionSection
-            isOpen={!!openSections[child.props.label]}
-            label={child.props.label}
+            isOpen={child && !!openSections[child.props.label]}
+            label={child ? child.props.label : ""}
             onClick={onClick}
             key={i}
           >
@@ -70,6 +75,5 @@ export default class Accordion extends Component {
 }
 
 Accordion.propTypes = {
-  allowMultipleOpen: PropTypes.bool,
-  children: PropTypes.instanceOf(Object).isRequired
+  allowMultipleOpen: PropTypes.bool
 };

@@ -1,11 +1,13 @@
 import React from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import { View, Image, TouchableOpacity, Text, Button } from 'react-native';
+import { TouchableHighlight, View, Image, TouchableOpacity, Text, Button, TextInput } from 'react-native';
+import Modal from 'react-modal';
 
 import { DeleteRowTable } from '../components/Tables';
 import { Title } from '../components/Text';
 import { BackHeader } from '../components/Headers';
 import firebase from '../data/firebase';
+import SubTitle from "../components/Text/SubTitle";
 
 const styles = EStyleSheet.create({
     newArtworkButton: {
@@ -14,15 +16,26 @@ const styles = EStyleSheet.create({
         backgroundColor: "#4CD964",
         justifyContent: "center",
         borderRadius: 3
-    }
+    },
+    textInput: {
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginTop: 8,
+        padding: 10,
+        width: "100%"
+    },
 });
 
 export default class AdminDashboard extends React.Component {
 
     state = {
         currentUser: -1,
+        newArtworkErrorMessage: null,
         errorMessage: null,
-        artworkUrls: []
+        artworkUrls: [],
+        modalVisible: false,
+        urlToAdd: ""
     };
 
     componentDidMount() {
@@ -69,12 +82,43 @@ export default class AdminDashboard extends React.Component {
             .catch(error => this.setState({ errorMessage: error.message }));
     };
 
+    isValidUrl = (newUrl) => {
+        return !newUrl.split("").some(ch => "[]/.#$".includes(ch))
+    };
+
     handleNewArtwork = () => {
-        console.log("new")
+        // check for invalid firebase characters
+        if (!this.isValidUrl(this.state.urlToAdd))
+            this.setState({ newArtworkErrorMessage: "Invalid URL, please try again" });
+        else
+            this.props.history.push("/admin-edit-artwork/" + this.state.urlToAdd)
     };
 
     handleEditItem = (item) => {
         this.props.history.push("/admin-edit-artwork/" + item.key);
+    };
+
+    deleteArtworkPage = (item) => {
+        console.log(item);
+
+        // delete text from firebase database
+        firebase.database().ref(item.key).remove();
+
+        // delete media from firebase storage
+        firebase.storage().ref().child(item.key).delete()
+            .then(function() {
+                // File deleted successfully
+                console.log('success!')
+            }).catch(function(error) {
+            // Uh-oh, an error occurred!
+                console.log(error)
+        });
+
+        // remove from current state
+        let newArtworkUrls = this.state.artworkUrls.filter(function( obj ) {
+            return obj.key !== item.key;
+        });
+        this.setState({ artworkUrls: newArtworkUrls });
     };
 
     render(){
@@ -89,6 +133,57 @@ export default class AdminDashboard extends React.Component {
         // DASHBOARD
         const DashBoard = (
             <View style={{ flex: 1, paddingHorizontal: "10%" }}>
+
+                <Modal
+                    isOpen={this.state.modalVisible}
+                    onRequestClose={() => {this.setState({ modalVisible: false })}}
+                    style={{
+                        content : {
+                            top: '50%',
+                            left: '50%',
+                            right: 'auto',
+                            bottom: 'auto',
+                            marginRight: '-50%',
+                            transform: 'translate(-50%, -50%)'
+                        }
+                    }}
+                    contentLabel="New Artwork"
+                    ariaHideApp={false}
+                >
+                    <View style={{ flex: 0, flexDirection: "row", justifyContent: "flex-end" }}>
+                        <TouchableHighlight
+                            onPress={() => {
+                                this.setState({ modalVisible: false })
+                            }}>
+                            <Text><b>X</b></Text>
+                        </TouchableHighlight>
+                    </View>
+
+                    <View style={{ flex: 1, alignContent: "center"}}>
+                        <SubTitle>New Artwork Url Extension<br /></SubTitle>
+                        <TextInput
+                            style={styles.textInput}
+                            placeholder="Url Extension"
+                            onChangeText={urlToAdd => {
+                                this.setState({
+                                    urlToAdd,
+                                    newArtworkErrorMessage: this.isValidUrl(urlToAdd) ? null : "Invalid URL, please try again"
+                                });
+                            }}
+                            value={this.state.urlToAdd}
+                        />
+                        {this.state.newArtworkErrorMessage &&
+                        <Text style={{ color: 'red' }}>
+                            {this.state.newArtworkErrorMessage}
+                        </Text>}
+                        <br />
+                        <Button
+                            onPress={this.handleNewArtwork}
+                            title="Create New Artwork"
+                        />
+                    </View>
+                </Modal>
+
                 <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
                     <Text>
                         Hi {currentUser && currentUser.email}!
@@ -104,13 +199,15 @@ export default class AdminDashboard extends React.Component {
                 <TouchableOpacity
                     style={styles.newArtworkButton}
                     title="Add New Artwork"
-                    onPress={this.handleNewArtwork}
+                    onPress={() => {
+                        this.setState({ modalVisible: true });
+                    }}
                 >
                     <Text style={{color: "#fff", textAlign: "center"}}>ADD ARTWORK</Text>
                 </TouchableOpacity>
                 <DeleteRowTable
                     onPress={(item) => this.handleEditItem(item)}
-                    delete={(item) => console.log("delete: ", item)}
+                    delete={this.deleteArtworkPage}
                     data={this.state.artworkUrls}
                 />
             </View>

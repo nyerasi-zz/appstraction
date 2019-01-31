@@ -2,6 +2,7 @@ import React from "react";
 import { Image, ScrollView, View } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import YouTube from "react-youtube";
+import '../assets/stylesheets/hidden.css';
 
 import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
@@ -60,7 +61,10 @@ export default class ArtPage extends React.Component {
 
       // if null, then no data has been found in firebase
       if (artDetails === null){
-        viewToRender = (<Title>Artwork Not Found</Title>);
+        viewToRender = (
+            <Title style={{marginTop: 100}}>
+                No Data Found <span role="img" aria-label="painter emoji">👨‍🎨🖼</span>
+            </Title>);
       }
 
       else {
@@ -68,39 +72,39 @@ export default class ArtPage extends React.Component {
           (<View style={{ flex: 1, width: "90%" }}>
             <Title>{artDetails.name}</Title>
 
-            {artDetails.photoFile ?
+            {artDetails.photoFileLink !== "" &&
                 <FullWidthImage
                     style={{}}
-                    source={{uri: artDetails.photoFile}}
+                    source={{uri: artDetails.photoFileLink}}
                     width={700}
                     height={500}
-                /> : null }
+                />}
 
             <Accordion allowMultipleOpen>
 
-                {artDetails.background ?
+                {artDetails.background !== "" &&
                     <div label="Background" isOpen>
                         <SubTitle>{artDetails.background}</SubTitle>
-                    </div> : null }
+                    </div>}
 
-                {artDetails.audioFile ?
+                {artDetails.audioFileLink !== "" &&
                     <div label="Audio">
                         <audio controls>
-                          <source src={artDetails.audioFile} />
+                          <source src={artDetails.audioFileLink} />
                         </audio>
-                    </div> : null }
+                    </div>}
 
-                {artDetails.technique ?
+                {artDetails.technique !== "" &&
                     <div label="Technique">
                         <SubTitle>{artDetails.technique}</SubTitle>
-                    </div> : null }
+                    </div>}
 
-                {artDetails.materials ?
+                {artDetails.materials !== "" &&
                     <div label="Materials">
-                    <SubTitle>{artDetails.materials}</SubTitle>
-                    </div> : null }
+                        <SubTitle>{artDetails.materials}</SubTitle>
+                    </div>}
 
-                {artDetails.videoID ?
+                {artDetails.videoID !== "" &&
                     <div label="Video">
                         <YouTube
                             videoId={artDetails.videoID}
@@ -113,7 +117,7 @@ export default class ArtPage extends React.Component {
                             }}
                             onReady={event => event.target.pauseVideo()}
                         />
-                    </div> : null }
+                    </div>}
             </Accordion>
           </View>)
         ;

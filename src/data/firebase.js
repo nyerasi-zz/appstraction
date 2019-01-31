@@ -4,7 +4,7 @@ const config = {
     authDomain: "bampfa-715df.firebaseapp.com",
     databaseURL: "https://bampfa-715df.firebaseio.com",
     projectId: "bampfa-715df",
-    storageBucket: "",
+    storageBucket: "gs://bampfa-715df.appspot.com",
     messagingSenderId: "114997490281"
 };
 firebase.initializeApp(config);

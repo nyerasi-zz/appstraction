@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"
 import { withRouter } from 'react-router-dom';
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { MdArrowBack } from "react-icons/md";
@@ -18,7 +19,7 @@ class BackHeader extends React.Component {
                     }}
                 >
                     {/* redirect to current url, but navigate history backward */}
-                    <Link to={this.props.match.url} onClick={this.props.history.goBack}>
+                    <Link to={this.props.match.url} onClick={this.props.onClick || this.props.history.goBack}>
                         <TouchableOpacity>
                             <View
                                 style={{
@@ -63,5 +64,9 @@ class BackHeader extends React.Component {
         );
     }
 }
+
+BackHeader.propTypes = {
+    onClick: PropTypes.func
+};
 
 export default withRouter(BackHeader)
