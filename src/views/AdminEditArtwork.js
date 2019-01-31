@@ -158,8 +158,6 @@ export default class AdminEditArtwork extends React.Component {
 
     render(){
 
-        console.log(this.state)
-
         // LOADING ICON
         let viewToRender = <Image
             style={{marginTop: 100, width: 100, height: 100}}
