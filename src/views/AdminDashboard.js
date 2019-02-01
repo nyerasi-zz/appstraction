@@ -99,23 +99,26 @@ export default class AdminDashboard extends React.Component {
     };
 
     deleteArtworkPage = (item) => {
-        console.log(item);
+        firebase.database().ref(item.key)
+            .once('value')
+            .then((snapshot) => {
+                // get audio and video file names
+                let artDetails = snapshot.val();
+                let audioFileName = artDetails.audioFileName;
+                let photoFileName = artDetails.photoFileName;
 
-        // delete text from firebase database
-        firebase.database().ref(item.key).remove();
+                // delete text from firebase database
+                firebase.database().ref(item.key).remove();
 
-        // delete media from firebase storage
-        firebase.storage().ref().child(item.key).delete()
-            .then(function() {
-                // File deleted successfully
-                console.log('success!')
-            }).catch(function(error) {
-            // Uh-oh, an error occurred!
-                console.log(error)
-        });
+                // delete media from firebase storage
+                if (audioFileName !== "")
+                    firebase.storage().ref(item.key).child(audioFileName).delete();
+                if (photoFileName !== "")
+                    firebase.storage().ref(item.key).child(photoFileName).delete();
+            });
 
         // remove from current state
-        let newArtworkUrls = this.state.artworkUrls.filter(function( obj ) {
+        let newArtworkUrls = this.state.artworkUrls.filter(function(obj) {
             return obj.key !== item.key;
         });
         this.setState({ artworkUrls: newArtworkUrls });
