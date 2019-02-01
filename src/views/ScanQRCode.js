@@ -35,7 +35,6 @@ export default class ScanQRCode extends React.Component {
   }
 
   handleScan(data){
-    console.log(data);
     if (data) {
       let searchString = "https://bampfa.herokuapp.com";
       let index;
