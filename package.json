@@ -5,11 +5,14 @@
   "dependencies": {
     "babel-core": "^7.0.0-bridge.0",
     "expo": "^31.0.5",
+    "express": "^4.16.4",
+    "express-favicon": "^2.0.1",
     "filepond": "^3.8.0",
     "filepond-plugin-image-preview": "^3.1.6",
     "firebase": "^5.8.1",
     "kleur": "^3.0.1",
     "lodash": "^4.17.11",
+    "path": "^0.12.7",
     "qrcode-svg": "^1.0.0",
     "react": "16.6.1",
     "react-art": "^16.6.3",
@@ -37,7 +40,7 @@
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
     "web": "react-scripts start",
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build-web": "react-scripts build",
     "test-web": "react-scripts test --env=jsdom",
     "eject-web": "react-scripts eject",
