@@ -10,6 +10,14 @@ https://github.com/necolas/react-native-web
 https://medium.com/@Or_yoffe/building-a-platform-agnostic-app-react-native-and-web-c0e82cbdda8
 https://medium.com/one-more-thing-studio/native-react-native-or-pwa-what-should-i-choose-e63f18732b5e
 
+## Deploying to PROD
+```
+yarn build-web
+git add build && git status
+git commit -m "rebuilt project"
+git push heroku master
+```
+
 ### Starter links
 
 - [Original Github](https://medium.com/@yannickdot/write-once-run-anywhere-with-create-react-native-app-and-react-native-web-ad40db63eed0)
