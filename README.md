@@ -11,6 +11,7 @@ https://medium.com/@Or_yoffe/building-a-platform-agnostic-app-react-native-and-w
 https://medium.com/one-more-thing-studio/native-react-native-or-pwa-what-should-i-choose-e63f18732b5e
 
 ## Deploying to PROD
+Note: must be logged into heroku via `heroku login`
 ```
 yarn build-web
 git add build && git status
