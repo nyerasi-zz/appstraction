@@ -29,6 +29,10 @@ export class App extends React.Component {
     StatusBar.setBarStyle("light-content");
   }
 
+  componentWillMount() {
+    document.title = "BAMPFA - Hans Hofmann Exhibit";
+  }
+
   render() {
     return (
       <View style={styles.mainView}>
@@ -43,7 +47,10 @@ export class App extends React.Component {
             <Route path="/camera" component={ScanQRCode} />
             <Route path="/admin" component={AdminLogin} />
             <Route path="/admin-dashboard" component={AdminDashboard} />
-            <Route path="/admin-edit-artwork/:urlName" component={AdminEditArtwork} />
+            <Route
+              path="/admin-edit-artwork/:urlName"
+              component={AdminEditArtwork}
+            />
           </Switch>
         </Router>
       </View>

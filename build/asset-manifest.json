@@ -1,7 +1,7 @@
 {
   "main.css": "/static/css/main.dff45d1d.chunk.css",
-  "main.js": "/static/js/main.67b3d4c3.chunk.js",
-  "main.js.map": "/static/js/main.67b3d4c3.chunk.js.map",
+  "main.js": "/static/js/main.07c9f37c.chunk.js",
+  "main.js.map": "/static/js/main.07c9f37c.chunk.js.map",
   "static/css/1.9cc27519.chunk.css": "/static/css/1.9cc27519.chunk.css",
   "static/js/1.397a9959.chunk.js": "/static/js/1.397a9959.chunk.js",
   "static/js/1.397a9959.chunk.js.map": "/static/js/1.397a9959.chunk.js.map",
@@ -13,9 +13,9 @@
   "static/media/HansHofmann.png": "/static/media/HansHofmann.d4ea8c31.png",
   "static/media/Tutorial.png": "/static/media/Tutorial.d13ccd28.png",
   "static/media/bampfa_logo.png": "/static/media/bampfa_logo.82e5c6d0.png",
-  "static/css/1.9cc27519.chunk.css.map": "/static/css/1.9cc27519.chunk.css.map",
   "static/css/main.dff45d1d.chunk.css.map": "/static/css/main.dff45d1d.chunk.css.map",
+  "static/css/1.9cc27519.chunk.css.map": "/static/css/1.9cc27519.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.e560f3b1486c7b7ebd9593dbc38406b4.js": "/precache-manifest.e560f3b1486c7b7ebd9593dbc38406b4.js",
+  "precache-manifest.11cd8ed9fc0b737c5021efe03202da66.js": "/precache-manifest.11cd8ed9fc0b737c5021efe03202da66.js",
   "service-worker.js": "/service-worker.js"
 }
