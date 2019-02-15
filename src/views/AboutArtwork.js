@@ -2,13 +2,13 @@ import React from "react";
 import { Image, ScrollView, View } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import YouTube from "react-youtube";
-import '../assets/stylesheets/hidden.css';
+import "../assets/stylesheets/hidden.css";
 
 import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
 import { Accordion } from "../components/Accordion";
 import { FullWidthImage } from "../components/Images";
-import firebase from '../data/firebase';
+import firebase from "../data/firebase";
 
 const styles = EStyleSheet.create({
   mainView: {
@@ -19,23 +19,24 @@ const styles = EStyleSheet.create({
 });
 
 export default class ArtPage extends React.Component {
-
-  constructor(){
+  constructor() {
     super();
 
     this.state = {
-        artName: "",
-        artDetails: -1
-    }
-  };
+      artName: "",
+      artDetails: -1
+    };
+  }
 
   componentDidMount() {
     const artName = this.props.match.params.artName;
 
     // fetch data from firebase and update state accordingly
-    firebase.database().ref(artName)
-      .once('value')
-      .then((snapshot) => {
+    firebase
+      .database()
+      .ref(artName)
+      .once("value")
+      .then(snapshot => {
         let artDetails = snapshot.val();
 
         // assumes data is formatted correctly... TODO: error check data
@@ -44,7 +45,7 @@ export default class ArtPage extends React.Component {
           artDetails: artDetails
         });
       })
-      .catch((error) => {
+      .catch(error => {
         this.setState({
           artName: artName,
           artDetails: null
@@ -54,73 +55,91 @@ export default class ArtPage extends React.Component {
 
   render() {
     let artDetails = this.state.artDetails;
-    let viewToRender = (<Image style={{marginTop: 100, width: 100, height: 100}} source={require("../assets/loading.gif")} />);
+    let viewToRender = (
+      <Image
+        style={{ marginTop: 100, width: 100, height: 100 }}
+        source={require("../assets/loading.gif")}
+      />
+    );
 
     // initial state is -1, so that loading icon will show by default
-    if (artDetails !== -1){
-
+    if (artDetails !== -1) {
       // if null, then no data has been found in firebase
-      if (artDetails === null){
+      if (artDetails === null) {
         viewToRender = (
-            <Title style={{marginTop: 100}}>
-                No Data Found <span role="img" aria-label="painter emoji">👨‍🎨🖼</span>
-            </Title>);
-      }
-
-      else {
-        viewToRender =
-          (<View style={{ flex: 1, width: "90%" }}>
+          <Title style={{ marginTop: 100 }}>
+            No Data Found{" "}
+            <span role="img" aria-label="painter emoji">
+              👨‍🎨🖼
+            </span>
+          </Title>
+        );
+      } else {
+        viewToRender = (
+          <View style={{ flex: 1, width: "90%" }}>
             <Title>{artDetails.name}</Title>
 
-            {artDetails.photoFileLink !== "" &&
-                <FullWidthImage
-                    style={{}}
-                    source={{uri: artDetails.photoFileLink}}
-                    width={700}
-                    height={500}
-                />}
+            {artDetails.photoFileLink !== "" && (
+              <FullWidthImage
+                style={{}}
+                source={{ uri: artDetails.photoFileLink }}
+                width={700}
+                height={500}
+              />
+            )}
 
             <Accordion allowMultipleOpen>
+              {artDetails.background !== "" && (
+                <div label="Background" isOpen>
+                  <SubTitle>{artDetails.background}</SubTitle>
+                </div>
+              )}
 
-                {artDetails.background !== "" &&
-                    <div label="Background" isOpen>
-                        <SubTitle>{artDetails.background}</SubTitle>
-                    </div>}
+              {(artDetails.audioText !== "" ||
+                artDetails.audioFileLink !== "") && (
+                <div label="Audio">
+                  {artDetails.audioFileLink !== "" && (
+                    <div>
+                      <audio controls>
+                        <source src={artDetails.audioFileLink} />
+                      </audio>
+                      <br />
+                    </div>
+                  )}
+                  <SubTitle>{artDetails.audioText}</SubTitle>
+                </div>
+              )}
 
-                {artDetails.audioFileLink !== "" &&
-                    <div label="Audio">
-                        <audio controls>
-                          <source src={artDetails.audioFileLink} />
-                        </audio>
-                    </div>}
+              {artDetails.technique !== "" && (
+                <div label="Technique">
+                  <SubTitle>{artDetails.technique}</SubTitle>
+                </div>
+              )}
 
-                {artDetails.technique !== "" &&
-                    <div label="Technique">
-                        <SubTitle>{artDetails.technique}</SubTitle>
-                    </div>}
+              {artDetails.materials !== "" && (
+                <div label="Materials">
+                  <SubTitle>{artDetails.materials}</SubTitle>
+                </div>
+              )}
 
-                {artDetails.materials !== "" &&
-                    <div label="Materials">
-                        <SubTitle>{artDetails.materials}</SubTitle>
-                    </div>}
-
-                {artDetails.videoID !== "" &&
-                    <div label="Video">
-                        <YouTube
-                            videoId={artDetails.videoID}
-                            opts={{
-                                height: 200,
-                                width: "100%",
-                                playerVars: {
-                                    autoplay: 0
-                                }
-                            }}
-                            onReady={event => event.target.pauseVideo()}
-                        />
-                    </div>}
+              {artDetails.videoID !== "" && (
+                <div label="Video">
+                  <YouTube
+                    videoId={artDetails.videoID}
+                    opts={{
+                      height: 200,
+                      width: "100%",
+                      playerVars: {
+                        autoplay: 0
+                      }
+                    }}
+                    onReady={event => event.target.pauseVideo()}
+                  />
+                </div>
+              )}
             </Accordion>
-          </View>)
-        ;
+          </View>
+        );
       }
     }
 
