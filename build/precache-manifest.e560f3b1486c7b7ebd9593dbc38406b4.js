@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/static/media/bampfa_logo.82e5c6d0.png"
   },
   {
-    "revision": "87f2fc177131691412ae",
+    "revision": "67b3d4c3466749c56491",
     "url": "/static/css/main.dff45d1d.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/static/media/loading.57b5ac6b.gif"
   },
   {
-    "revision": "87f2fc177131691412ae",
-    "url": "/static/js/main.87f2fc17.chunk.js"
+    "revision": "67b3d4c3466749c56491",
+    "url": "/static/js/main.67b3d4c3.chunk.js"
   },
   {
     "revision": "d6e27409248f4150907fc6c678f5e17a",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/static/css/1.9cc27519.chunk.css"
   },
   {
-    "revision": "e5b1427e11b188f1d475c0ca935a4199",
+    "revision": "b02c313f19aeaa096cfac37cb4185f33",
     "url": "/index.html"
   }
 ];
