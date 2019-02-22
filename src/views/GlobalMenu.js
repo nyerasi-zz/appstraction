@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { FaWalking, FaClock, FaInfoCircle } from "react-icons/fa";
+import { FaWalking, FaClock, FaInfoCircle, FaSearch } from "react-icons/fa";
 
 import { MenuButton } from "../components/Button";
 import { BackHeader } from "../components/Headers";
@@ -62,6 +62,17 @@ export default class GlobalMenu extends React.Component {
               buttonStyle={{ backgroundColor: "#186DBE" }}
               icon={FaInfoCircle}
               linksTo="/about-artist"
+            />
+            <MenuButton
+              text="Discover"
+              buttonStyle={{ backgroundColor: "#3DBEA8" }}
+              icon={FaSearch}
+              onClick={() => {
+                window.location.assign(
+                  "https://www.instagram.com/explore/tags/hanshofmann/"
+                );
+              }}
+              linksTo="/global-menu"
             />
           </View>
         </View>
