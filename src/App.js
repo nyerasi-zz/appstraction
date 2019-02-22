@@ -4,7 +4,7 @@ import { View, StatusBar } from "react-native";
 import EStylesheet from "react-native-extended-stylesheet";
 
 import { exampleAction } from "./redux/actions/exampleAction";
-import { Router, Switch, Route } from "./routers/Routing.web";
+import { Router, Switch, Route, Redirect } from "./routers/Routing.web";
 import {
   HomePage,
   GlobalMenu,
@@ -25,32 +25,67 @@ const styles = EStylesheet.create({
 });
 
 export class App extends React.Component {
+  state = {
+    windowWidth: window.innerWidth
+  };
+
   componentDidMount() {
     StatusBar.setBarStyle("light-content");
   }
 
   componentWillMount() {
     document.title = "BAMPFA - Hans Hofmann Exhibit";
+    window.addEventListener("resize", this.handleWindowSizeChange);
   }
 
+  // make sure to remove the listener when the component is not mounted anymore
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ windowWidth: window.innerWidth });
+  };
+
   render() {
+    const { windowWidth } = this.state;
+    const isMobile = windowWidth <= 500;
+
     return (
       <View style={styles.mainView}>
         <Router>
           <Switch hideNavBar={true}>
             {/* Place all views and their URLs here */}
-            <Route exact path="/" component={HomePage} />
-            <Route path="/global-menu" component={GlobalMenu} />
-            <Route path="/skip-tutorial" component={SkipTutorial} />
-            <Route path="/about-artist" component={AboutArtist} />
-            <Route path="/artworks/:artName" component={AboutArtwork} />
-            <Route path="/camera" component={ScanQRCode} />
+
+            {/* ADMIN ITEMS WORK ON ALL DEVICES */}
             <Route path="/admin" component={AdminLogin} />
             <Route path="/admin-dashboard" component={AdminDashboard} />
             <Route
               path="/admin-edit-artwork/:urlName"
               component={AdminEditArtwork}
             />
+
+            {/* REDIRECT WHEN ON NON MOBILE DEVICE */}
+            <Route
+              path="/desktop-redirect"
+              component={() => {
+                alert(
+                  "Please visit this website on a mobile device.\n" +
+                    "Redirecting to Bampfa.org..."
+                );
+                window.location.href = "https://bampfa.org/";
+                return null;
+              }}
+            />
+            {!isMobile && <Redirect to="/desktop-redirect" />}
+
+            {/* USER-FACING VIEWS */}
+            <Route exact path="/" component={HomePage} />
+            <Route path="/global-menu" component={GlobalMenu} />
+            <Route path="/skip-tutorial" component={SkipTutorial} />
+            <Route path="/about-artist" component={AboutArtist} />
+            <Route path="/artworks/:artName" component={AboutArtwork} />
+            <Route path="/camera" component={ScanQRCode} />
           </Switch>
         </Router>
       </View>
