@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/static/media/bampfa_logo.82e5c6d0.png"
   },
   {
-    "revision": "07c9f37c676379c3caac",
-    "url": "/static/css/main.dff45d1d.chunk.css"
+    "revision": "475836e3751d37592fff",
+    "url": "/static/css/main.7d78ad09.chunk.css"
   },
   {
     "revision": "d13ccd28b18476ee11de50061e5440b3",
     "url": "/static/media/Tutorial.d13ccd28.png"
   },
   {
-    "revision": "397a9959c0aff84da929",
-    "url": "/static/js/1.397a9959.chunk.js"
+    "revision": "abe28c047e827ad9ba84",
+    "url": "/static/js/1.abe28c04.chunk.js"
   },
   {
     "revision": "229c360febb4351a89df",
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/static/media/loading.57b5ac6b.gif"
   },
   {
-    "revision": "07c9f37c676379c3caac",
-    "url": "/static/js/main.07c9f37c.chunk.js"
+    "revision": "475836e3751d37592fff",
+    "url": "/static/js/main.475836e3.chunk.js"
   },
   {
     "revision": "d6e27409248f4150907fc6c678f5e17a",
@@ -40,11 +40,11 @@ self.__precacheManifest = [
     "url": "/static/media/HansHofmann.d4ea8c31.png"
   },
   {
-    "revision": "397a9959c0aff84da929",
-    "url": "/static/css/1.9cc27519.chunk.css"
+    "revision": "abe28c047e827ad9ba84",
+    "url": "/static/css/1.da9f91cc.chunk.css"
   },
   {
-    "revision": "44222b6e8b245ac5e7db77dca7617122",
+    "revision": "44bce66f8b3c38fc32741115836c38dd",
     "url": "/index.html"
   }
 ];
