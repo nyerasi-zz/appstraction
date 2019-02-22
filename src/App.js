@@ -48,8 +48,9 @@ export class App extends React.Component {
   };
 
   render() {
-    const { windowWidth } = this.state;
-    const isMobile = windowWidth <= 500;
+    // const { windowWidth } = this.state;
+    // const isMobile = windowWidth <= 500;
+    const isMobile = true;
 
     return (
       <View style={styles.mainView}>
