@@ -26,11 +26,12 @@ export default class AboutArtist extends React.Component {
             alwaysBounceVertical={true}
             contentContainerStyle={{ alignItems: "center" }}
             style={{
-              flex: 1
+              flex: 1,
+              paddingBottom: 40
             }}
           >
             <View style={{ flex: 1, width: "90%" }}>
-              <Title>About the Artist</Title>
+              <Title style={{textAlign: 'center'}}>About the Artist</Title>
 
               <View
                 style={{
@@ -83,6 +84,7 @@ export default class AboutArtist extends React.Component {
                   his death in 1966, Hofmann continued to create boldly
                   experimental color combinations and formal contrasts that
                   transcended genre and style.
+                  {"\n\n"}
                 </SubTitle>
                 <YouTube
                   videoId="vLRKFJxGh10"
