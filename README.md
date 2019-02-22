@@ -1,5 +1,7 @@
 # appstraction
 
+### ⚠️ Note: this README is currently under construction ⚠️
+
 A React Native companion app for an upcoming museum exhibit.
 
 Introduction:
