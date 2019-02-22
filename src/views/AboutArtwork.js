@@ -158,7 +158,8 @@ export default class ArtPage extends React.Component {
             contentContainerStyle={{ alignItems: "center" }}
             style={{
               flex: 1,
-              width: "100%"
+              width: "100%",
+              paddingBottom: 40
             }}
           >
             {viewToRender}
