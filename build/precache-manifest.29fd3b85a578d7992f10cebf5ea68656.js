@@ -4,28 +4,28 @@ self.__precacheManifest = [
     "url": "/static/media/bampfa_logo.82e5c6d0.png"
   },
   {
-    "revision": "0350afc7030f6ee822da",
-    "url": "/static/css/main.7d78ad09.chunk.css"
+    "revision": "6bc116ec07df383a8a71",
+    "url": "/static/css/main.6abe4109.chunk.css"
+  },
+  {
+    "revision": "fdfcfda2d9b1bf31db52",
+    "url": "/static/js/runtime~main.fdfcfda2.js"
   },
   {
     "revision": "d13ccd28b18476ee11de50061e5440b3",
     "url": "/static/media/Tutorial.d13ccd28.png"
   },
   {
-    "revision": "abe28c047e827ad9ba84",
-    "url": "/static/js/1.abe28c04.chunk.js"
-  },
-  {
-    "revision": "229c360febb4351a89df",
-    "url": "/static/js/runtime~main.229c360f.js"
+    "revision": "1ee22c6f807e68114af2",
+    "url": "/static/js/2.1ee22c6f.chunk.js"
   },
   {
     "revision": "57b5ac6b38d427ee6ad7278126b0418f",
     "url": "/static/media/loading.57b5ac6b.gif"
   },
   {
-    "revision": "0350afc7030f6ee822da",
-    "url": "/static/js/main.0350afc7.chunk.js"
+    "revision": "6bc116ec07df383a8a71",
+    "url": "/static/js/main.6bc116ec.chunk.js"
   },
   {
     "revision": "d6e27409248f4150907fc6c678f5e17a",
@@ -40,11 +40,11 @@ self.__precacheManifest = [
     "url": "/static/media/HansHofmann.d4ea8c31.png"
   },
   {
-    "revision": "abe28c047e827ad9ba84",
-    "url": "/static/css/1.da9f91cc.chunk.css"
+    "revision": "1ee22c6f807e68114af2",
+    "url": "/static/css/2.1e9a379c.chunk.css"
   },
   {
-    "revision": "cb3a5ff435e08705e4bde125263ce547",
+    "revision": "12024394132352c873ee5f47bd02bfce",
     "url": "/index.html"
   }
 ];
