@@ -12,6 +12,7 @@ export default class AboutArtist extends React.Component {
         style={{
           flex: 1
         }}
+        className="back-item"
       >
         <BackHeader />
 
@@ -31,7 +32,7 @@ export default class AboutArtist extends React.Component {
             }}
           >
             <View style={{ flex: 1, width: "90%" }}>
-              <Title style={{textAlign: 'center'}}>About the Artist</Title>
+              <Title style={{ textAlign: "center" }}>About the Artist</Title>
 
               <View
                 style={{

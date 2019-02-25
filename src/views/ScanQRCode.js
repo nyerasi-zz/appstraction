@@ -1,6 +1,7 @@
 import React from "react";
-import { View } from "react-native";
+import { View, ScrollView } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
+import screenfull from "screenfull";
 
 import { BackHeader } from "../components/Headers";
 import { QRCamera } from "../components/Camera";
@@ -34,16 +35,16 @@ export default class ScanQRCode extends React.Component {
     };
   }
 
-  handleScan(data){
+  handleScan(data) {
     if (data) {
       let searchString = "https://bampfa.herokuapp.com";
       let index;
 
-      if ((index = data.indexOf(searchString)) !== -1){
-          let path = data.substring(index + searchString.length);
-          this.props.history.push(path);
+      if ((index = data.indexOf(searchString)) !== -1) {
+        let path = data.substring(index + searchString.length);
+        this.props.history.push(path);
       } else {
-          this.props.history.push("artworks/invalid-qr");
+        this.props.history.push("artworks/invalid-qr");
       }
     }
   }
@@ -51,15 +52,16 @@ export default class ScanQRCode extends React.Component {
   handleError(err) {
     this.setState({
       errorOccurred: true,
+      errorName: err.name,
       errorMessage: err.message
     });
   }
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1 }} className="back-item">
         <BackHeader />
-        <View style={{ flex: 1, backgroundColor: "#01a7b7" }}>
+        <ScrollView style={{ flex: 1, backgroundColor: "#01a7b7" }}>
           {this.state.errorOccurred ? (
             // ERROR VIEW
             <View style={styles.errorView}>
@@ -67,11 +69,25 @@ export default class ScanQRCode extends React.Component {
                 An error has occurred.
               </Title>
               <SubTitle style={{ textAlign: "center" }}>
-                We couldn't access the device's camera because of the following
-                error: <b>{this.state.errorMessage}</b>
-                {"\n\n"}
+                {this.state.errorName === "NotSupportedError" ? (
+                  <b>
+                    HTTPS is not enabled.{" "}
+                    <a
+                      href={window.location.href.replace("http://", "https://")}
+                      onClick={screenfull.request}
+                    >
+                      Click here to visit this site with HTTPS.
+                    </a>
+                  </b>
+                ) : (
+                  <p>
+                    We couldn't access the device's camera because:{" "}
+                    <b>{this.state.errorMessage}</b>
+                  </p>
+                )}
               </SubTitle>
               <SubTitle style={{ textAlign: "center" }}>
+                {"\n\n"}
                 Please refresh this page to try again.
               </SubTitle>
             </View>
@@ -97,7 +113,7 @@ export default class ScanQRCode extends React.Component {
               height={816}
             />
           </View>
-        </View>
+        </ScrollView>
       </View>
     );
   }
