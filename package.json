@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
     "babel-core": "^7.0.0-bridge.0",
     "expo": "^31.0.5",
     "express": "^4.16.4",

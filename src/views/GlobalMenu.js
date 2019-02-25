@@ -8,6 +8,10 @@ import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
 
 export default class GlobalMenu extends React.Component {
+  state = {
+    open: false
+  };
+
   render() {
     return (
       <View
