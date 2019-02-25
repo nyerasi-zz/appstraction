@@ -8,6 +8,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import { FaChevronRight } from "react-icons/fa";
+import screenfull from "screenfull";
 
 import { Link } from "../routers/Routing";
 import { Logo } from "../components/Images";
@@ -58,7 +59,13 @@ export default class HomePage extends React.Component {
             }}
           >
             <Link to="/global-menu" style={{ textDecoration: "none" }}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  if (screenfull.enabled) {
+                    setTimeout(screenfull.request, 500);
+                  }
+                }}
+              >
                 <View>
                   <Text
                     style={{

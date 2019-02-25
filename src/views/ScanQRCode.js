@@ -51,6 +51,7 @@ export default class ScanQRCode extends React.Component {
   handleError(err) {
     this.setState({
       errorOccurred: true,
+      errorName: err.name,
       errorMessage: err.message
     });
   }
@@ -67,11 +68,24 @@ export default class ScanQRCode extends React.Component {
                 An error has occurred.
               </Title>
               <SubTitle style={{ textAlign: "center" }}>
-                We couldn't access the device's camera because of the following
-                error: <b>{this.state.errorMessage}</b>
-                {"\n\n"}
+                {this.state.errorName === "NotSupportedError" ? (
+                  <b>
+                    HTTPS is not enabled.{" "}
+                    <a
+                      href={window.location.href.replace("http://", "https://")}
+                    >
+                      Click here to visit this site with HTTPS.
+                    </a>
+                  </b>
+                ) : (
+                  <p>
+                    We couldn't access the device's camera because:{" "}
+                    <b>{this.state.errorMessage}</b>
+                  </p>
+                )}
               </SubTitle>
               <SubTitle style={{ textAlign: "center" }}>
+                {"\n\n"}
                 Please refresh this page to try again.
               </SubTitle>
             </View>

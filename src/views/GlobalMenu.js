@@ -14,7 +14,7 @@ export default class GlobalMenu extends React.Component {
         style={{
           flex: 1
         }}
-        className="transition-item back-item"
+        className="transition-item menu-page"
       >
         <BackHeader
           onClick={() => {

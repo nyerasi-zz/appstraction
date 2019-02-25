@@ -58,47 +58,64 @@ export class App extends React.Component {
         <Router style={{ flex: 1 }}>
           <Route
             style={{ flex: 1 }}
-            render={({ location }) => (
-              <PageTransition timeout={500} style={{ flex: 1 }}>
-                <Switch
-                  location={location}
-                  hideNavBar={true}
-                  style={{ flex: 1 }}
-                >
-                  {/* Place all views and their URLs here */}
+            render={({ location }) => {
+              if (
+                location.pathname === "/" ||
+                location.pathname === "/global-menu"
+              ) {
+                return (
+                  <PageTransition timeout={500} style={{ flex: 1 }}>
+                    <Switch
+                      location={location}
+                      hideNavBar={true}
+                      style={{ flex: 1 }}
+                    >
+                      <Route exact path="/" component={HomePage} />
+                      <Route path="/global-menu" component={GlobalMenu} />
+                    </Switch>
+                  </PageTransition>
+                );
+              } else {
+                return (
+                  <Switch
+                    location={location}
+                    hideNavBar={true}
+                    style={{ flex: 1 }}
+                  >
+                    {/* Place all views and their URLs here */}
 
-                  {/* ADMIN ITEMS WORK ON ALL DEVICES */}
-                  <Route path="/admin" component={AdminLogin} />
-                  <Route path="/admin-dashboard" component={AdminDashboard} />
-                  <Route
-                    path="/admin-edit-artwork/:urlName"
-                    component={AdminEditArtwork}
-                  />
+                    {/* ADMIN ITEMS WORK ON ALL DEVICES */}
+                    <Route path="/admin" component={AdminLogin} />
+                    <Route path="/admin-dashboard" component={AdminDashboard} />
+                    <Route
+                      path="/admin-edit-artwork/:urlName"
+                      component={AdminEditArtwork}
+                    />
 
-                  {/* REDIRECT WHEN ON NON MOBILE DEVICE */}
-                  <Route
-                    path="/desktop-redirect"
-                    component={() => {
-                      alert(
-                        "Please visit this website on a mobile device.\n" +
-                          "Redirecting to Bampfa.org..."
-                      );
-                      window.location.href = "https://bampfa.org/";
-                      return null;
-                    }}
-                  />
-                  {!isMobile && <Redirect to="/desktop-redirect" />}
+                    {/* REDIRECT WHEN ON NON MOBILE DEVICE */}
+                    <Route
+                      path="/desktop-redirect"
+                      component={() => {
+                        alert(
+                          "Please visit this website on a mobile device.\n" +
+                            "Redirecting to Bampfa.org..."
+                        );
+                        window.location.href = "https://bampfa.org/";
+                        return null;
+                      }}
+                    />
+                    {!isMobile && <Redirect to="/desktop-redirect" />}
 
-                  {/* USER-FACING VIEWS */}
-                  <Route exact path="/" component={HomePage} />
-                  <Route path="/global-menu" component={GlobalMenu} />
-                  <Route path="/skip-tutorial" component={SkipTutorial} />
-                  <Route path="/about-artist" component={AboutArtist} />
-                  <Route path="/artworks/:artName" component={AboutArtwork} />
-                  <Route path="/camera" component={ScanQRCode} />
-                </Switch>
-              </PageTransition>
-            )}
+                    {/* USER-FACING VIEWS */}
+
+                    <Route path="/skip-tutorial" component={SkipTutorial} />
+                    <Route path="/about-artist" component={AboutArtist} />
+                    <Route path="/artworks/:artName" component={AboutArtwork} />
+                    <Route path="/camera" component={ScanQRCode} />
+                  </Switch>
+                );
+              }
+            }}
           />
         </Router>
       </View>

@@ -12147,6 +12147,11 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
+screenfull@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/screenfull/-/screenfull-4.0.1.tgz#f3c13c41eb852cd29a63b01cf6e02a4fede137e2"
+  integrity sha512-9Poi+mjYVWbMFtt7JFGvXo9r/HVo2eweKnmAFQ0A++YjoCKaErDbvLjwtTF7Slazdx9K7VCxqWbNn22V2a1J/g==
+
 sdp@^2.6.0, sdp@^2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/sdp/-/sdp-2.9.0.tgz#2eed2d9c0b26c81ff87593107895c68d6fb9a0a6"

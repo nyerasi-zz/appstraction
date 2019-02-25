@@ -153,7 +153,6 @@ export default class AdminDashboard extends React.Component {
   };
 
   render() {
-    console.log("wtf");
     const currentUser = this.state.currentUser;
 
     // LOADING ICON

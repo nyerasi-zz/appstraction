@@ -49,7 +49,6 @@ export default class AdminLogin extends React.Component {
   };
 
   render() {
-    console.log("what the hell");
     const currentUser = this.state.currentUser;
 
     // LOADING ICON
