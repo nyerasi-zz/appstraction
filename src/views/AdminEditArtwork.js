@@ -445,7 +445,7 @@ export default class AdminEditArtwork extends React.Component {
     if (this.state.dataLoaded) viewToRender = EditingView;
 
     return (
-      <View style={[styles.mainView, { flex: 1 }]}>
+      <View style={[styles.mainView, { flex: 1 }]} className="back-item">
         <BackHeader
           onClick={
             this.state.disableLivePreview

@@ -6,8 +6,6 @@ import { Link } from "../../routers/Routing";
 import styles from "./styles";
 
 class MenuButton extends React.Component {
-  testPress() {}
-
   render() {
     const Icon = this.props.icon;
     const link = this.props.linksTo ? this.props.linksTo : "";
@@ -24,7 +22,7 @@ class MenuButton extends React.Component {
           }}
         >
           <TouchableHighlight
-            onPress={this.testPress}
+            onPress={() => {}}
             style={[this.props.buttonStyle, styles.menuButton]}
           >
             <Text style={styles.buttonText}>

@@ -34,16 +34,16 @@ export default class ScanQRCode extends React.Component {
     };
   }
 
-  handleScan(data){
+  handleScan(data) {
     if (data) {
       let searchString = "https://bampfa.herokuapp.com";
       let index;
 
-      if ((index = data.indexOf(searchString)) !== -1){
-          let path = data.substring(index + searchString.length);
-          this.props.history.push(path);
+      if ((index = data.indexOf(searchString)) !== -1) {
+        let path = data.substring(index + searchString.length);
+        this.props.history.push(path);
       } else {
-          this.props.history.push("artworks/invalid-qr");
+        this.props.history.push("artworks/invalid-qr");
       }
     }
   }
@@ -57,7 +57,7 @@ export default class ScanQRCode extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1 }} className="back-item">
         <BackHeader />
         <View style={{ flex: 1, backgroundColor: "#01a7b7" }}>
           {this.state.errorOccurred ? (

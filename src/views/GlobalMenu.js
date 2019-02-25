@@ -1,6 +1,7 @@
 import React from "react";
 import { View } from "react-native";
-import { FaWalking, FaClock, FaInfoCircle, FaSearch } from "react-icons/fa";
+import { FaWalking, FaClock, FaInfoCircle } from "react-icons/fa";
+import { TiSocialInstagram } from "react-icons/ti";
 
 import { MenuButton } from "../components/Button";
 import { BackHeader } from "../components/Headers";
@@ -13,8 +14,13 @@ export default class GlobalMenu extends React.Component {
         style={{
           flex: 1
         }}
+        className="transition-item back-item"
       >
-        <BackHeader />
+        <BackHeader
+          onClick={() => {
+            this.props.history.replace("/");
+          }}
+        />
 
         {/* CONTENT */}
         <View
@@ -66,7 +72,7 @@ export default class GlobalMenu extends React.Component {
             <MenuButton
               text="Discover"
               buttonStyle={{ backgroundColor: "#3DBEA8" }}
-              icon={FaSearch}
+              icon={TiSocialInstagram}
               onClick={() => {
                 window.location.assign(
                   "https://www.instagram.com/explore/tags/hanshofmann/"

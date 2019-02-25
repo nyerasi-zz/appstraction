@@ -148,6 +148,7 @@ export default class ArtPage extends React.Component {
         style={{
           flex: 1
         }}
+        className="back-item"
       >
         <BackHeader />
 
