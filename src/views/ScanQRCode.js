@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View, ScrollView } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import screenfull from "screenfull";
 
@@ -61,7 +61,7 @@ export default class ScanQRCode extends React.Component {
     return (
       <View style={{ flex: 1 }} className="back-item">
         <BackHeader />
-        <View style={{ flex: 1, backgroundColor: "#01a7b7" }}>
+        <ScrollView style={{ flex: 1, backgroundColor: "#01a7b7" }}>
           {this.state.errorOccurred ? (
             // ERROR VIEW
             <View style={styles.errorView}>
@@ -113,7 +113,7 @@ export default class ScanQRCode extends React.Component {
               height={816}
             />
           </View>
-        </View>
+        </ScrollView>
       </View>
     );
   }
