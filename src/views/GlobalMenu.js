@@ -82,7 +82,6 @@ export default class GlobalMenu extends React.Component {
                   "https://www.instagram.com/explore/tags/hanshofmann/"
                 );
               }}
-              linksTo="/global-menu"
             />
           </View>
         </View>

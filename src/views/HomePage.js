@@ -4,7 +4,6 @@ import {
   ImageBackground,
   Text,
   View,
-  StyleSheet,
   TouchableOpacity
 } from "react-native";
 import { FaChevronRight } from "react-icons/fa";
@@ -13,7 +12,7 @@ import screenfull from "screenfull";
 import { Link } from "../routers/Routing";
 import { Logo } from "../components/Images";
 
-const styles = StyleSheet.create({
+const styles = {
   backgroundImage: {
     flex: 1,
     alignItems: "center",
@@ -23,7 +22,7 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300
   }
-});
+};
 
 export default class HomePage extends React.Component {
   render() {

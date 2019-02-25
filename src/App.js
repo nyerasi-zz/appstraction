@@ -3,9 +3,11 @@ import { connect } from "react-redux";
 import { View, StatusBar } from "react-native";
 import PageTransition from "react-router-page-transition";
 import EStyleSheet from "react-native-extended-stylesheet";
+import { Modal } from "@material-ui/core";
 
+import { Title, SubTitle } from "./components/Text";
 import { exampleAction } from "./redux/actions/exampleAction";
-import { Router, Switch, Route, Redirect } from "./routers/Routing.web";
+import { Router, Switch, Route } from "./routers/Routing.web";
 import {
   HomePage,
   GlobalMenu,
@@ -25,9 +27,24 @@ const styles = EStyleSheet.create({
   }
 });
 
+// EStyleSheet didn't work for modal :(
+const stylesObj = {
+  modalDiv: {
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    position: "absolute",
+    backgroundColor: "white",
+    outline: "none",
+    boxShadow: ["0 10px 20px rgba(0,0,0,0.19)", "0 6px 6px rgba(0,0,0,0.23)"],
+    width: "80%",
+    padding: 20
+  }
+};
+
 export class App extends React.Component {
   state = {
-    windowWidth: window.innerWidth
+    modalOpen: window.innerWidth > 500
   };
 
   componentDidMount() {
@@ -45,16 +62,34 @@ export class App extends React.Component {
   }
 
   handleWindowSizeChange = () => {
-    this.setState({ windowWidth: window.innerWidth });
+    this.setState({
+      modalOpen: window.innerWidth > 500
+    });
   };
 
   render() {
-    // const { windowWidth } = this.state;
-    // const isMobile = windowWidth <= 500;
-    const isMobile = true;
-
     return (
       <View style={styles.appView}>
+        {/* MODAL FOR DESKTOP VIEW */}
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.modalOpen}
+          onClose={() => {
+            this.setState({ modalOpen: false });
+          }}
+        >
+          <div style={stylesObj.modalDiv}>
+            <Title>Please Note:</Title>
+            <SubTitle style={{ lineHeight: 2 }}>{"\n\n"}</SubTitle>
+            <SubTitle>
+              This site is not optimized for Desktop. Please visit on a mobile
+              device for a better experience.
+            </SubTitle>
+          </div>
+        </Modal>
+
+        {/* ROUTES */}
         <Router style={{ flex: 1 }}>
           <Route
             style={{ flex: 1 }}
@@ -93,7 +128,7 @@ export class App extends React.Component {
                     />
 
                     {/* REDIRECT WHEN ON NON MOBILE DEVICE */}
-                    <Route
+                    {/* <Route
                       path="/desktop-redirect"
                       component={() => {
                         alert(
@@ -104,7 +139,7 @@ export class App extends React.Component {
                         return null;
                       }}
                     />
-                    {!isMobile && <Redirect to="/desktop-redirect" />}
+                    {!isMobile && <Redirect to="/desktop-redirect" />} */}
 
                     {/* USER-FACING VIEWS */}
 
