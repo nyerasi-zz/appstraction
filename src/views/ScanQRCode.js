@@ -1,6 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
+import screenfull from "screenfull";
 
 import { BackHeader } from "../components/Headers";
 import { QRCamera } from "../components/Camera";
@@ -73,6 +74,7 @@ export default class ScanQRCode extends React.Component {
                     HTTPS is not enabled.{" "}
                     <a
                       href={window.location.href.replace("http://", "https://")}
+                      onClick={screenfull.request}
                     >
                       Click here to visit this site with HTTPS.
                     </a>
