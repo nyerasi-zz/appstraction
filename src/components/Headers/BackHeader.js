@@ -4,6 +4,8 @@ import { withRouter } from "react-router-dom";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { MdArrowBack } from "react-icons/md";
+import { FiMaximize2, FiMinimize2 } from "react-icons/fi";
+import screenfull from "screenfull";
 
 import { Link } from "../../routers/Routing";
 
@@ -30,10 +32,6 @@ class BackHeader extends React.Component {
             alignSelf: "flex-start"
           }}
         >
-          {/* <Link
-            to={""}
-            onClick={this.props.onClick || this.props.history.goBack}
-          > */}
           <TouchableOpacity
             onPress={this.props.onClick || this.props.history.goBack}
           >
@@ -75,7 +73,36 @@ class BackHeader extends React.Component {
         </View>
 
         {/* Dummy item to balance out centered logo */}
-        <View style={{ alignSelf: "flex-end", flex: 1 }} />
+        <View style={{ alignSelf: "flex-end", flex: 1 }}>
+          <TouchableOpacity
+            onPress={() => {
+              if (screenfull.isFullscreen) screenfull.exit();
+              else screenfull.request();
+            }}
+          >
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "flex-end",
+                alignItems: "flex-end"
+              }}
+            >
+              <Text
+                style={{
+                  color: "black",
+                  opacity: 0.3,
+                  fontSize: 30,
+                  padding: 20,
+                  textAlignVertical: "bottom"
+                }}
+              >
+                <Text style={{ textAlignVertical: "center" }}>
+                  {screenfull.isFullscreen ? <FiMinimize2 /> : <FiMaximize2 />}
+                </Text>
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
