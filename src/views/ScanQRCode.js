@@ -58,6 +58,7 @@ export default class ScanQRCode extends React.Component {
   }
 
   render() {
+    console.log(this.state.errorName);
     return (
       <View style={{ flex: 1 }} className="back-item">
         <BackHeader />
@@ -69,7 +70,8 @@ export default class ScanQRCode extends React.Component {
                 An error has occurred.
               </Title>
               <SubTitle style={{ textAlign: "center" }}>
-                {this.state.errorName === "NotSupportedError" ? (
+                {this.state.errorName === "NotSupportedError" ||
+                this.state.errorName === "NotAllowedError" ? (
                   <b>
                     HTTPS is not enabled.{" "}
                     <a
