@@ -17,7 +17,8 @@ import {
   ScanQRCode,
   AdminLogin,
   AdminEditArtwork,
-  AdminDashboard
+  AdminDashboard,
+  SearchArtwork
 } from "./views";
 
 const styles = EStyleSheet.create({
@@ -147,6 +148,7 @@ export class App extends React.Component {
                     <Route path="/about-artist" component={AboutArtist} />
                     <Route path="/artworks/:artName" component={AboutArtwork} />
                     <Route path="/camera" component={ScanQRCode} />
+                    <Route path='/search' component={SearchArtwork} />
                   </Switch>
                 );
               }
