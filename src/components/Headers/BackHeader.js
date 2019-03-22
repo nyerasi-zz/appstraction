@@ -74,34 +74,42 @@ class BackHeader extends React.Component {
 
         {/* Dummy item to balance out centered logo */}
         <View style={{ alignSelf: "flex-end", flex: 1 }}>
-          <TouchableOpacity
-            onPress={() => {
-              if (screenfull.isFullscreen) screenfull.exit();
-              else screenfull.request();
-            }}
-          >
-            <View
-              style={{
-                flex: 1,
-                justifyContent: "flex-end",
-                alignItems: "flex-end"
+          {screenfull.enabled && (
+            <TouchableOpacity
+              onPress={() => {
+                if (screenfull.enabled) {
+                  if (screenfull.isFullscreen) screenfull.exit();
+                  else screenfull.request();
+                }
               }}
             >
-              <Text
+              <View
                 style={{
-                  color: "black",
-                  opacity: 0.3,
-                  fontSize: 30,
-                  padding: 20,
-                  textAlignVertical: "bottom"
+                  flex: 1,
+                  justifyContent: "flex-end",
+                  alignItems: "flex-end"
                 }}
               >
-                <Text style={{ textAlignVertical: "center" }}>
-                  {screenfull.isFullscreen ? <FiMinimize2 /> : <FiMaximize2 />}
+                <Text
+                  style={{
+                    color: "black",
+                    opacity: 0.3,
+                    fontSize: 30,
+                    padding: 20,
+                    textAlignVertical: "bottom"
+                  }}
+                >
+                  <Text style={{ textAlignVertical: "center" }}>
+                    {screenfull.isFullscreen ? (
+                      <FiMinimize2 />
+                    ) : (
+                      <FiMaximize2 />
+                    )}
+                  </Text>
                 </Text>
-              </Text>
-            </View>
-          </TouchableOpacity>
+              </View>
+            </TouchableOpacity>
+          )}
         </View>
       </View>
     );

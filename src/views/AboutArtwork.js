@@ -68,9 +68,9 @@ export default class ArtPage extends React.Component {
       if (artDetails === null) {
         viewToRender = (
           <Title style={{ marginTop: 100 }}>
-            No Data Found{" "}
+            No Artwork Found{" "}
             <span role="img" aria-label="painter emoji">
-              👨‍🎨🖼
+              😢🖼
             </span>
           </Title>
         );
@@ -90,8 +90,12 @@ export default class ArtPage extends React.Component {
 
             <Accordion allowMultipleOpen>
               {artDetails.background !== "" && (
-                <div label="Background" isOpen>
-                  <SubTitle>{artDetails.background}</SubTitle>
+                <div label="Artwork Information" isOpen>
+                  <div
+                    style={{ width: "100%" }}
+                    dangerouslySetInnerHTML={{ __html: artDetails.background }}
+                  />
+                  {/* <SubTitle>{artDetails.background}</SubTitle> */}
                 </div>
               )}
 

@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { View, StatusBar } from "react-native";
+import { View } from "react-native";
 import PageTransition from "react-router-page-transition";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { Modal } from "@material-ui/core";
 
+import { isMobileDevice } from "./util/mobile";
 import { Title, SubTitle } from "./components/Text";
 import { exampleAction } from "./redux/actions/exampleAction";
 import { Router, Switch, Route } from "./routers/Routing.web";
@@ -20,10 +21,13 @@ import {
   AdminDashboard
 } from "./views";
 
+// const BASE_URL = "https://bampfa.now.sh";
+
 const styles = EStyleSheet.create({
   appView: {
-    flex: 1,
-    backgroundColor: "$primaryGray"
+    // flex: 1,
+    backgroundColor: "$primaryGray",
+    height: "100%"
   }
 });
 
@@ -44,12 +48,8 @@ const stylesObj = {
 
 export class App extends React.Component {
   state = {
-    modalOpen: window.innerWidth > 500
+    modalOpen: this.shouldModalOpen()
   };
-
-  componentDidMount() {
-    StatusBar.setBarStyle("light-content");
-  }
 
   componentWillMount() {
     document.title = "BAMPFA - Hans Hofmann Exhibit";
@@ -61,9 +61,13 @@ export class App extends React.Component {
     window.removeEventListener("resize", this.handleWindowSizeChange);
   }
 
+  shouldModalOpen() {
+    return window.innerWidth > 500 && !isMobileDevice();
+  }
+
   handleWindowSizeChange = () => {
     this.setState({
-      modalOpen: window.innerWidth > 500
+      modalOpen: this.shouldModalOpen()
     });
   };
 
@@ -90,21 +94,17 @@ export class App extends React.Component {
         </Modal>
 
         {/* ROUTES */}
-        <Router style={{ flex: 1 }}>
+        <Router>
           <Route
-            style={{ flex: 1 }}
             render={({ location }) => {
+              // workaround for page transition (only active on these pages)
               if (
                 location.pathname === "/" ||
                 location.pathname === "/global-menu"
               ) {
                 return (
                   <PageTransition timeout={500} style={{ flex: 1 }}>
-                    <Switch
-                      location={location}
-                      hideNavBar={true}
-                      style={{ flex: 1 }}
-                    >
+                    <Switch location={location}>
                       <Route exact path="/" component={HomePage} />
                       <Route path="/global-menu" component={GlobalMenu} />
                     </Switch>
@@ -112,13 +112,8 @@ export class App extends React.Component {
                 );
               } else {
                 return (
-                  <Switch
-                    location={location}
-                    hideNavBar={true}
-                    style={{ flex: 1 }}
-                  >
+                  <Switch location={location}>
                     {/* Place all views and their URLs here */}
-
                     {/* ADMIN ITEMS WORK ON ALL DEVICES */}
                     <Route path="/admin" component={AdminLogin} />
                     <Route path="/admin-dashboard" component={AdminDashboard} />
@@ -127,22 +122,7 @@ export class App extends React.Component {
                       component={AdminEditArtwork}
                     />
 
-                    {/* REDIRECT WHEN ON NON MOBILE DEVICE */}
-                    {/* <Route
-                      path="/desktop-redirect"
-                      component={() => {
-                        alert(
-                          "Please visit this website on a mobile device.\n" +
-                            "Redirecting to Bampfa.org..."
-                        );
-                        window.location.href = "https://bampfa.org/";
-                        return null;
-                      }}
-                    />
-                    {!isMobile && <Redirect to="/desktop-redirect" />} */}
-
                     {/* USER-FACING VIEWS */}
-
                     <Route path="/skip-tutorial" component={SkipTutorial} />
                     <Route path="/about-artist" component={AboutArtist} />
                     <Route path="/artworks/:artName" component={AboutArtwork} />

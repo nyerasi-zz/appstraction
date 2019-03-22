@@ -125,7 +125,7 @@ export default class AdminEditArtwork extends React.Component {
 
   downloadQRCode = () => {
     const qrCode = new QRCode({
-      content: "https://bampfa.herokuapp.com/artworks/" + this.state.urlName,
+      content: "https://bampfa.now.sh/artworks/" + this.state.urlName,
       padding: 4,
       width: 256,
       height: 256,
@@ -303,7 +303,7 @@ export default class AdminEditArtwork extends React.Component {
         />
         <br />
 
-        <SubTitle>Background</SubTitle>
+        <SubTitle>Artwork Information</SubTitle>
         <AutoGrowTextInput
           style={styles.textInput}
           placeholder="Background"
@@ -313,6 +313,14 @@ export default class AdminEditArtwork extends React.Component {
           }}
           value={this.state.background}
         />
+        <Text>
+          This section will render as HTML, so you can
+          {" <i>italicize</i>, <b>bold</b>, and <u>underline</u> "} using the
+          appropriate tags. You can also add line breaks with {"<br/>"}.
+          <br />
+          <b>Please note:</b> some characters may not render properly, please
+          double check that they do on the live page.
+        </Text>
         <br />
 
         <SubTitle>Materials</SubTitle>

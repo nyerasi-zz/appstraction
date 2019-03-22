@@ -36,8 +36,9 @@ export default class ScanQRCode extends React.Component {
   }
 
   handleScan(data) {
+    console.log(data);
     if (data) {
-      let searchString = "https://bampfa.herokuapp.com";
+      let searchString = "https://bampfa.now.sh";
       let index;
 
       if ((index = data.indexOf(searchString)) !== -1) {
@@ -50,6 +51,7 @@ export default class ScanQRCode extends React.Component {
   }
 
   handleError(err) {
+    console.log(err);
     this.setState({
       errorOccurred: true,
       errorName: err.name,
@@ -58,7 +60,6 @@ export default class ScanQRCode extends React.Component {
   }
 
   render() {
-    console.log(this.state.errorName);
     return (
       <View style={{ flex: 1 }} className="back-item">
         <BackHeader />

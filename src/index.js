@@ -1,3 +1,6 @@
+//IMPORTANT THIS POLYFILL MUST BE INCLUDED BEFORE any RNW (react-native) imports
+import "resize-observer-polyfill/dist/ResizeObserver.global";
+
 import React from "react";
 import { Provider } from "react-redux";
 import ReactDOM from "react-dom";

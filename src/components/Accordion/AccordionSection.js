@@ -19,7 +19,7 @@ export default class AccordionSection extends Component {
           padding: "15px 20px"
         }}
       >
-        <div onClick={onClick} style={{ cursor: "pointer", fontFamily: "Gotham Book, sans-serif" }}>
+        <div onClick={onClick} style={{ cursor: "pointer", fontFamily: "Gotham Book, sans-serif", fontWeight: 700 }}>
           {label}
           <div style={{ float: "right" }}>
             {!isOpen && <FaChevronDown />}
