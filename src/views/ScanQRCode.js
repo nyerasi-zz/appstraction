@@ -38,14 +38,25 @@ export default class ScanQRCode extends React.Component {
   handleScan(data) {
     console.log(data);
     if (data) {
-      let searchString = "https://bampfa.now.sh";
-      let index;
+      let urlSuffixes = ["now.sh", "herokuapp.com"];
 
-      if ((index = data.indexOf(searchString)) !== -1) {
-        let path = data.substring(index + searchString.length);
-        this.props.history.push(path);
-      } else {
-        this.props.history.push("artworks/invalid-qr");
+      let index,
+        found = false;
+
+      // see if there's a match with the scanned URL
+      for (var i = 0; i < urlSuffixes.length; i++) {
+        const urlSuffix = urlSuffixes[i];
+
+        if ((index = data.indexOf(urlSuffix)) !== -1) {
+          let path = data.substring(index + urlSuffix.length);
+          found = true;
+          this.props.history.push(path);
+          break;
+        }
+      }
+
+      if (!found) {
+        window.location.replace(data);
       }
     }
   }

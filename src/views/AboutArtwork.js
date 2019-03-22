@@ -68,8 +68,11 @@ export default class ArtPage extends React.Component {
       // if null, then no data has been found in firebase
       if (artDetails === null) {
         viewToRender = (
-          <Title style={{ marginTop: 100 }}>
-            No Artwork Found{" "}
+          <Title
+            style={{ marginTop: 100, textAlign: "center", lineHeight: "1" }}
+          >
+            QR Code Not Supported
+            <br />
             <span role="img" aria-label="painter emoji">
               😢🖼
             </span>
