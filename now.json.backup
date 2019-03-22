@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "name": "BAMPFA",
+  "builds": [
+    {
+      "src": "./build/**",
+      "use": "@now/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "build/$1"
+    }
+  ]
+}
