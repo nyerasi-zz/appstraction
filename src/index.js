@@ -9,7 +9,7 @@ import EStyleSheet from "react-native-extended-stylesheet";
 import store from "./redux/configureStore";
 import "./index.css";
 import App from "./App";
-import registerServiceWorker from "./service_worker/registerServiceWorker";
+// import registerServiceWorker from "./service_worker/registerServiceWorker";
 import "./App.css";
 
 // place default colors here, and reference them in styles.js files
@@ -32,4 +32,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-registerServiceWorker();
+// registerServiceWorker();

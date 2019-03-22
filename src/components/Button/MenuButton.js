@@ -8,7 +8,7 @@ const styles = {
   menuButton: {
     alignItems: "center",
     padding: 10,
-    margin: 15,
+    margin: "11px 15px",
     width: "80%",
     borderRadius: 5,
     textTransform: "none",
@@ -17,7 +17,7 @@ const styles = {
   },
   buttonText: {
     color: "white",
-    fontSize: 20,
+    fontSize: "1.4rem",
     fontWeight: "bold"
   },
   buttonIcon: {

@@ -13,7 +13,7 @@ const styles = EStyleSheet.create({
     backgroundColor: "$primaryGray"
   },
   errorView: {
-    flex: 1,
+    // flex: 1,
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: "10%",
@@ -63,7 +63,10 @@ export default class ScanQRCode extends React.Component {
     return (
       <View style={{ flex: 1 }} className="back-item">
         <BackHeader />
-        <ScrollView style={{ flex: 1, backgroundColor: "#01a7b7" }}>
+        <ScrollView
+          bounces={false}
+          style={{ flex: 1, backgroundColor: "#01a7b7" }}
+        >
           {this.state.errorOccurred ? (
             // ERROR VIEW
             <View style={styles.errorView}>

@@ -1,6 +1,14 @@
 html,
 body {
   height: 100%;
+  font-size: small;
+}
+
+@media screen and (max-width: 320px) {
+  body,
+  html {
+    font-size: x-small;
+  }
 }
 
 body {
@@ -10,7 +18,5 @@ body {
 }
 
 #root {
-  /* display: flex; */
-  /* flex-direction: column; */
-  height: 100%;
+  height: 100vh;
 }

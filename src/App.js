@@ -51,9 +51,15 @@ export class App extends React.Component {
     modalOpen: this.shouldModalOpen()
   };
 
+  handleWindowSizeChange = () => {
+    this.setState({
+      modalOpen: this.shouldModalOpen()
+    });
+  };
+
   componentWillMount() {
     document.title = "BAMPFA - Hans Hofmann Exhibit";
-    window.addEventListener("resize", this.handleWindowSizeChange);
+    window.addEventListener("resize", this.handleWindowSizeChange, true);
   }
 
   // make sure to remove the listener when the component is not mounted anymore
@@ -64,12 +70,6 @@ export class App extends React.Component {
   shouldModalOpen() {
     return window.innerWidth > 500 && !isMobileDevice();
   }
-
-  handleWindowSizeChange = () => {
-    this.setState({
-      modalOpen: this.shouldModalOpen()
-    });
-  };
 
   render() {
     return (

@@ -7,6 +7,7 @@ import "../assets/stylesheets/hidden.css";
 import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
 import { Accordion } from "../components/Accordion";
+import { Footer } from "../components/Footer";
 import { FullWidthImage } from "../components/Images";
 import firebase from "../data/firebase";
 
@@ -142,6 +143,8 @@ export default class ArtPage extends React.Component {
                 </div>
               )}
             </Accordion>
+
+            <Footer />
           </View>
         );
       }
@@ -159,7 +162,7 @@ export default class ArtPage extends React.Component {
         {/* CONTENT */}
         <View style={styles.mainView}>
           <ScrollView
-            alwaysBounceVertical={true}
+            bounces={false}
             contentContainerStyle={{ alignItems: "center" }}
             style={{
               flex: 1,

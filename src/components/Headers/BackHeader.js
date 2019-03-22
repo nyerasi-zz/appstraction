@@ -12,9 +12,9 @@ import { Link } from "../../routers/Routing";
 const styles = EStyleSheet.create({
   headerContainer: {
     width: "100%",
+    padding: 20,
     // backgroundColor: "#d6d7da",
     backgroundColor: "$primaryGray",
-    // flex: 0,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center"
@@ -29,7 +29,8 @@ class BackHeader extends React.Component {
         <View
           style={{
             flex: 1,
-            alignSelf: "flex-start"
+            alignSelf: "flex-start",
+            height: "100%"
           }}
         >
           <TouchableOpacity
@@ -45,7 +46,6 @@ class BackHeader extends React.Component {
                 style={{
                   color: "black",
                   fontSize: 30,
-                  padding: 20,
                   textAlignVertical: "bottom"
                 }}
               >
@@ -59,7 +59,13 @@ class BackHeader extends React.Component {
         </View>
 
         {/* LOGO */}
-        <View style={{ alignItems: "center", alignSelf: "center", flex: 1 }}>
+        <View
+          style={{
+            alignItems: "center",
+            alignSelf: "center",
+            flex: 1
+          }}
+        >
           <Link to={"/"}>
             <Image
               style={{
@@ -95,7 +101,6 @@ class BackHeader extends React.Component {
                     color: "black",
                     opacity: 0.3,
                     fontSize: 30,
-                    padding: 20,
                     textAlignVertical: "bottom"
                   }}
                 >

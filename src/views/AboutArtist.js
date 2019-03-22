@@ -4,6 +4,7 @@ import YouTube from "react-youtube";
 
 import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
+import { Footer } from "../components/Footer";
 
 export default class AboutArtist extends React.Component {
   render() {
@@ -24,11 +25,11 @@ export default class AboutArtist extends React.Component {
           }}
         >
           <ScrollView
-            alwaysBounceVertical={true}
+            bounces={false}
             contentContainerStyle={{ alignItems: "center" }}
             style={{
-              flex: 1,
-              paddingBottom: 40
+              flex: 1
+              // paddingBottom: 40
             }}
           >
             <View style={{ flex: 1, width: "90%" }}>
@@ -44,10 +45,10 @@ export default class AboutArtist extends React.Component {
                   style={{ width: 200, height: 200 }}
                   source={require("../assets/HansHofmann.png")}
                 />
-                <Title style={{ fontSize: 25, textAlign: "center" }}>
+                <Title style={{ fontSize: "2.5rem", textAlign: "center" }}>
                   Hans Hofmann{"\n"}(1880-1966)
                 </Title>
-                <SubTitle style={{ paddingVertical: 10 }}>
+                <SubTitle style={{ paddingVertical: 10, fontSize: "1.4rem" }}>
                   Hans Hofmann (1880–1966) is one of the most important figures
                   of postwar American art. Celebrated for his exuberant,
                   color-filled canvases, and renowned as an influential teacher
@@ -98,6 +99,7 @@ export default class AboutArtist extends React.Component {
                   }}
                   onReady={event => event.target.pauseVideo()}
                 />
+                <Footer />
               </View>
             </View>
           </ScrollView>

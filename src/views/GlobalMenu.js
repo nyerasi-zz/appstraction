@@ -31,23 +31,27 @@ export default class GlobalMenu extends React.Component {
           style={{
             flex: 1,
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
+            overflow: "auto"
           }}
         >
           <View
             style={{
               width: "90%",
-              // justifyContent: "center",
               paddingHorizontal: "5%",
               paddingBottom: 20
             }}
           >
-            <Title>
+            <Title
+              style={{
+                fontSize: "2.5rem"
+              }}
+            >
               Closer Look
               <br />
               Hans Hofmann: The Nature of Abstraction
             </Title>
-            <SubTitle style={{ lineHeight: "1.3em" }}>
+            <SubTitle style={{ lineHeight: "1.3em", fontSize: "1.2rem" }}>
               Dive deeper into the exhibition through video interviews with
               Lucinda Barnes, curator emerita at BAMPFA; excerpts from the
               catalog; and quotes from the artist.
@@ -90,6 +94,7 @@ export default class GlobalMenu extends React.Component {
                 );
               }}
             />
+            <View style={{ width: "100%", height: 50 }} />
           </View>
         </View>
       </View>
