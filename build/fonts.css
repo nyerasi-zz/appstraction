@@ -14,6 +14,22 @@
 
 @font-face {
   font-family: "Gotham Book";
+  font-weight: 700;
+  src: url("./fonts/gotham-bold/Gotham-Bold.eot"); /* IE9 Compat Modes */
+  src: url("./fonts/gotham-bold/Gotham-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./fonts/gotham-bold/Gotham-Bold.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("./fonts/gotham-bold/Gotham-Bold.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */ url("./fonts/gotham-bold/Gotham-Bold.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("./fonts/gotham-bold/Gotham-Bold.svg#GothamMedium") format("svg"); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: "Gotham Book";
+  font-weight: 400;
   src: url("./fonts/gotham-book/Gotham-Book.otf");
   src: url("./fonts/gotham-book/Gotham-Book.eot?#iefix")
       format("embedded-opentype"),

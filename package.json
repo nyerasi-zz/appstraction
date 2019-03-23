@@ -48,6 +48,7 @@
     "start": "node index.js",
     "build": "react-scripts build",
     "now-build": "react-scripts build",
+    "now-deploy": "yarn build && now",
     "test-web": "react-scripts test --env=jsdom",
     "eject-web": "react-scripts eject",
     "test": "yarn run test-web && yarn run test-native"

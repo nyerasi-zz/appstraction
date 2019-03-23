@@ -18,10 +18,11 @@ import {
   ScanQRCode,
   AdminLogin,
   AdminEditArtwork,
-  AdminDashboard
+  AdminDashboard,
+  InfoPage,
+  Page404,
+  Search
 } from "./views";
-
-// const BASE_URL = "https://bampfa.now.sh";
 
 const styles = EStyleSheet.create({
   appView: {
@@ -127,6 +128,9 @@ export class App extends React.Component {
                     <Route path="/about-artist" component={AboutArtist} />
                     <Route path="/artworks/:artName" component={AboutArtwork} />
                     <Route path="/camera" component={ScanQRCode} />
+                    <Route path="/info" component={InfoPage} />
+                    <Route path="/search" component={Search} />
+                    <Route component={Page404} />
                   </Switch>
                 );
               }

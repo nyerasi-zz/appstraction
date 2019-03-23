@@ -16,6 +16,12 @@ const styles = EStyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "$primaryGray"
+  },
+  subtitle: {
+    fontFamily: "Gotham Book, sans-serif",
+    lineHeight: 24,
+    fontSize: 16,
+    color: "#000000"
   }
 });
 
@@ -39,6 +45,8 @@ export default class ArtPage extends React.Component {
       .once("value")
       .then(snapshot => {
         let artDetails = snapshot.val();
+
+        console.log(artDetails);
 
         // assumes data is formatted correctly... TODO: error check data
         this.setState({
@@ -71,7 +79,7 @@ export default class ArtPage extends React.Component {
           <Title
             style={{ marginTop: 100, textAlign: "center", lineHeight: "1" }}
           >
-            QR Code Not Supported
+            Artwork not found
             <br />
             <span role="img" aria-label="painter emoji">
               😢🖼
@@ -96,7 +104,13 @@ export default class ArtPage extends React.Component {
               {artDetails.background !== "" && (
                 <div label="Artwork Information" isOpen>
                   <div
-                    style={{ width: "100%" }}
+                    style={{
+                      width: "100%",
+                      fontFamily: "Gotham Book, sans-serif",
+                      lineHeight: "24px",
+                      fontSize: 16,
+                      color: "#000000"
+                    }}
                     dangerouslySetInnerHTML={{ __html: artDetails.background }}
                   />
                   {/* <SubTitle>{artDetails.background}</SubTitle> */}
@@ -166,6 +180,7 @@ export default class ArtPage extends React.Component {
         <View style={styles.mainView}>
           <ScrollView
             bounces={false}
+            alwaysBounceVertical={false}
             contentContainerStyle={{ alignItems: "center" }}
             style={{
               flex: 1,

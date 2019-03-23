@@ -21,7 +21,9 @@ const styles = {
     fontWeight: "bold"
   },
   buttonIcon: {
-    paddingRight: 10
+    paddingRight: 10,
+    marginTop: 2,
+    verticalAlign: "text-top"
   }
 };
 
@@ -55,7 +57,9 @@ class MenuButton extends React.Component {
           }}
         >
           <Text style={styles.buttonText}>
-            {Icon ? <Icon style={styles.buttonIcon} /> : null}
+            {Icon ? (
+              <Icon style={{ ...styles.buttonIcon, ...this.props.iconStyle }} />
+            ) : null}
             {this.props.text}
           </Text>
         </Button>
@@ -76,6 +80,7 @@ class MenuButton extends React.Component {
 
 MenuButton.propTypes = {
   buttonStyle: PropTypes.object,
+  iconStyle: PropTypes.object,
   text: PropTypes.string,
   icon: PropTypes.any,
   linksTo: PropTypes.string,

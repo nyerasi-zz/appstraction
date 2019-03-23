@@ -29,15 +29,13 @@ export default class ScanQRCode extends React.Component {
     this.handleScan = this.handleScan.bind(this);
     this.handleError = this.handleError.bind(this);
 
-    this.state = {
-      errorOccurred: false,
-      errorMessage: ""
-    };
+    this.state = {};
   }
 
   handleScan(data) {
     console.log(data);
     if (data) {
+      this.setState({ scannedData: data });
       let urlSuffixes = ["now.sh", "herokuapp.com"];
 
       let index,
@@ -64,13 +62,83 @@ export default class ScanQRCode extends React.Component {
   handleError(err) {
     console.log(err);
     this.setState({
-      errorOccurred: true,
       errorName: err.name,
       errorMessage: err.message
     });
   }
 
+  renderErrorView = (title, subtitle) => (
+    <View style={styles.errorView}>
+      <Title style={{ textAlign: "center", fontSize: "2.5rem" }}>{title}</Title>
+      <SubTitle style={{ textAlign: "center", fontSize: "1.4rem" }}>
+        {subtitle}
+      </SubTitle>
+    </View>
+  );
+
   render() {
+    // CAMERA VIEW
+    let viewToRender = (
+      <View style={styles.cameraView}>
+        <QRCamera handleScan={this.handleScan} handleError={this.handleError} />
+      </View>
+    );
+
+    // ERROR VIEW
+    if (this.state.errorName) {
+      // NON IOS 11 / WRONG BROWSER
+      if (this.state.errorName === "NoVideoInputDevicesError") {
+        viewToRender = this.renderErrorView(
+          "Sorry! Your browser is not compatible.",
+          <p>
+            <b>Android users:</b> Please make sure you're using <b>Chrome</b>.
+            {"\n\n"}
+            <b>iPhone users:</b> Please make sure you're using <b>Safari</b>,
+            and that you're running <b>iOS 11 or higher</b>.{"\n\n"}
+            To experience this exhibit another way, please visit the{" "}
+            <b>
+              <a href="/search">artwork search page</a>
+            </b>
+            .
+          </p>
+        );
+      }
+
+      // NON HTTP ERROR
+      else if (
+        window.location.href.startsWith("http://") &&
+        !window.location.href.startsWith("http://localhost")
+      ) {
+        viewToRender = this.renderErrorView(
+          "Please enable HTTPS",
+          <p>
+            Unfortunately the camera will not work if HTTPS is not enabled.{" "}
+            <b>
+              <a
+                href={window.location.href.replace("http://", "https://")}
+                onClick={screenfull.request}
+              >
+                Click here to visit this site with HTTPS.
+              </a>
+            </b>
+          </p>
+        );
+      }
+
+      // GENERIC ERROR
+      else {
+        viewToRender = this.renderErrorView(
+          "An error has occurred.",
+          <p>
+            We couldn't access the device's camera because:{" "}
+            <b>{this.state.errorMessage}</b>
+            {"\n\n"}
+            Please refresh this page to try again.
+          </p>
+        );
+      }
+    }
+
     return (
       <View style={{ flex: 1 }} className="back-item">
         <BackHeader />
@@ -78,46 +146,8 @@ export default class ScanQRCode extends React.Component {
           bounces={false}
           style={{ flex: 1, backgroundColor: "#01a7b7" }}
         >
-          {this.state.errorOccurred ? (
-            // ERROR VIEW
-            <View style={styles.errorView}>
-              <Title style={{ textAlign: "center" }}>
-                An error has occurred.
-              </Title>
-              <SubTitle style={{ textAlign: "center" }}>
-                {this.state.errorName === "NotSupportedError" ||
-                this.state.errorName === "NotAllowedError" ? (
-                  <b>
-                    HTTPS is not enabled.{" "}
-                    <a
-                      href={window.location.href.replace("http://", "https://")}
-                      onClick={screenfull.request}
-                    >
-                      Click here to visit this site with HTTPS.
-                    </a>
-                  </b>
-                ) : (
-                  <p>
-                    We couldn't access the device's camera because:{" "}
-                    <b>{this.state.errorMessage}</b>
-                  </p>
-                )}
-              </SubTitle>
-              <SubTitle style={{ textAlign: "center" }}>
-                {"\n\n"}
-                Please refresh this page to try again.
-              </SubTitle>
-            </View>
-          ) : (
-            // CAMERA VIEW
-            <View style={styles.cameraView}>
-              <QRCamera
-                handleScan={this.handleScan}
-                handleError={this.handleError}
-                // height={Dimensions.get("window").height / PixelRatio.get()}
-              />
-            </View>
-          )}
+          {viewToRender}
+
           <View
             style={{
               flex: 1,

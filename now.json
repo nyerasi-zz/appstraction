@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "name": "BAMPFA",
   "builds": [
     {
       "src": "package.json",
@@ -12,42 +13,87 @@
   "routes": [
     {
       "src": "^/fonts/(.*)",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
       "dest": "/fonts/$1"
     },
     {
       "src": "^/static/(.*)",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
       "dest": "/static/$1"
     },
-    { "src": "^/android-chrome-(.*)", "dest": "/android-chrome-$1" },
-    { "src": "^/apple-touch-(.*)", "dest": "/apple-touch-$1" },
-    { "src": "^/fonts.css", "dest": "/fonts.css" },
-    { "src": "^/site.webmanifest", "dest": "/site.webmanifest" },
+    {
+      "src": "^/android-chrome-(.*)",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
+      "dest": "/android-chrome-$1"
+    },
+    {
+      "src": "^/apple-touch-(.*)",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
+      "dest": "/apple-touch-$1"
+    },
+    {
+      "src": "^/fonts.css",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
+      "dest": "/fonts.css"
+    },
+    {
+      "src": "^/site.webmanifest",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
+      "dest": "/site.webmanifest"
+    },
     {
       "src": "^/favicon.ico",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
       "dest": "/favicon.ico"
     },
 
     {
       "src": "^/asset-manifest.json",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
       "dest": "/asset-manifest.json"
     },
     {
       "src": "^/manifest.json",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
       "dest": "/manifest.json"
     },
     {
       "src": "^/precache-manifest.(.*)",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
       "dest": "/precache-manifest.$1"
     },
     {
       "src": "^/service-worker.js",
       "headers": {
-        "cache-control": "s-maxage=0"
+        "cache-control": "no-cache, no-store, must-revalidate"
       },
       "dest": "/service-worker.js"
     },
     {
       "src": ".*",
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate"
+      },
       "dest": "/index.html"
     }
   ]

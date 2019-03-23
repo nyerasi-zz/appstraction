@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { FaWalking, FaSearch, FaInfoCircle } from "react-icons/fa";
+import { FaPaintBrush, FaInfoCircle, FaQrcode } from "react-icons/fa";
 import { TiSocialInstagram } from "react-icons/ti";
 
 import { MenuButton } from "../components/Button";
@@ -69,13 +69,13 @@ export default class GlobalMenu extends React.Component {
             <MenuButton
               text="Experience the Exhibition"
               buttonStyle={{ backgroundColor: "#D20663" }}
-              icon={FaWalking}
+              icon={FaQrcode}
               linksTo="/camera"
             />
             <MenuButton
-              text="Search"
+              text="Navigate Artworks"
               buttonStyle={{ backgroundColor: "#F8AD0B" }}
-              icon={FaSearch}
+              icon={FaPaintBrush}
               linksTo="/global-menu"
             />
             <MenuButton
@@ -87,6 +87,7 @@ export default class GlobalMenu extends React.Component {
             <MenuButton
               text="#HansHofmann"
               buttonStyle={{ backgroundColor: "#3DBEA8" }}
+              iconStyle={{ fontSize: "1.8rem", marginTop: -1 }}
               icon={TiSocialInstagram}
               onClick={() => {
                 window.location.assign(
