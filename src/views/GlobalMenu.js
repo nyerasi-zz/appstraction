@@ -76,7 +76,7 @@ export default class GlobalMenu extends React.Component {
               text="Navigate Artworks"
               buttonStyle={{ backgroundColor: "#F8AD0B" }}
               icon={FaPaintBrush}
-              linksTo="/global-menu"
+              linksTo="/search"
             />
             <MenuButton
               text="About the Artist"
