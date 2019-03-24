@@ -5,6 +5,7 @@ import EStyleSheet from "react-native-extended-stylesheet";
 import { BackHeader } from "../components/Headers";
 import { SearchBar } from "../components/Inputs";
 import SearchResult from "../components/SearchResult/SearchResult";
+import { Footer } from "../components/Footer";
 import firebase from "../data/firebase";
 
 const styles = EStyleSheet.create({
@@ -48,8 +49,6 @@ export default class Search extends React.Component {
   }
 
   render() {
-    console.log(this.state.artDetails);
-
     let viewToRender = (
       <Image
         style={{ marginTop: 100, width: 100, height: 100 }}
@@ -70,7 +69,9 @@ export default class Search extends React.Component {
             style={{
               flex: 1,
               width: "100%",
-              paddingBottom: 40
+              paddingTop: 10,
+              paddingBottom: 40,
+              paddingHorizontal: 20
             }}
           >
             {Object.keys(this.state.artDetails).map(
@@ -81,10 +82,13 @@ export default class Search extends React.Component {
                     key={index}
                     name={artDetails[key].name}
                     year="1987"
+                    link={key}
+                    photoFileLink={artDetails[key].photoFileLink}
                   />
                 );
               }.bind(this)
             )}
+            <Footer />
           </ScrollView>
         </View>
       );

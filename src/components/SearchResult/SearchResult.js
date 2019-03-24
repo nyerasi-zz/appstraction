@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { Link } from "../../routers/Routing.web";
+import { View, Text, ImageBackground } from "react-native";
 import PropTypes from "prop-types";
+
+import { Link } from "../../routers/Routing.web";
 
 export default class SearchResult extends React.Component {
   render() {
@@ -9,24 +10,46 @@ export default class SearchResult extends React.Component {
       <Link
         to={this.props.link ? `/artworks/${this.props.link}` : "/search"}
         style={{
+          width: "100%",
           textDecoration: "none",
+          margin: "10px 20px",
+          borderRadius: 5,
           color: "black",
-          border: "1px solid red"
+          overflow: "hidden",
+          backgroundColor: "white"
         }}
       >
+        <ImageBackground
+          source={{ uri: this.props.photoFileLink }}
+          style={{
+            width: "100%",
+            height: 65,
+            overflow: "hidden"
+          }}
+          imageStyle={{
+            width: "100%",
+            resizeMode: "center"
+          }}
+        />
         <View
           style={{
-            backgroundColor: "white",
             width: "100%",
-            marginHorizontal: 20,
-            flexDirection: "row"
+            paddingHorizontal: 20,
+            flexDirection: "row",
+            paddingVertical: 10
           }}
         >
           <View style={{ flex: 3 }}>
-            <Text>{this.props.name}</Text>
+            <Text numberOfLines={1} style={{ flex: 1 }}>
+              {this.props.name}
+            </Text>
           </View>
-          <View style={{ flex: 1 }}>
-            <Text>{this.props.year}</Text>
+          <View
+            style={{
+              flex: 1
+            }}
+          >
+            <Text style={{ textAlign: "right" }}>{this.props.year}</Text>
           </View>
         </View>
       </Link>
