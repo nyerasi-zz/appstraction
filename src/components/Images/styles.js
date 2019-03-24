@@ -18,5 +18,9 @@ export default EStyleSheet.create({
     padding: 20,
     justifyContent: "center",
     alignItems: "center"
+  },
+  logoLockUp: {
+    width: 350,
+    height: 100,
   }
 });

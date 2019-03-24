@@ -9,7 +9,10 @@ import {
 import { FaChevronRight } from "react-icons/fa";
 
 import { Link } from "../routers/Routing";
-import { Logo } from "../components/Images";
+import {
+  Logo,
+  LogoLockUp
+} from "../components/Images";
 
 const styles = {
   backgroundImage: {
@@ -19,7 +22,8 @@ const styles = {
   },
   titleImage: {
     width: 300,
-    height: 300
+    height: 300,
+    paddingBottom: 350,
   }
 };
 
@@ -34,10 +38,8 @@ export default class HomePage extends React.Component {
         <ImageBackground
           style={styles.backgroundImage}
           imageStyle={{ resizeMode: "cover" }}
-          source={require("../assets/IndianSunsetBlur.jpg")}
+          source={require("../assets/artworks/IndianSunset.jpg")}
         >
-          <Logo />
-
           {/* MIDDLE TEXT */}
           <View style={{ alignItems: "center", flex: 3 }}>
             <Image
@@ -53,7 +55,8 @@ export default class HomePage extends React.Component {
               justifyContent: "center",
               alignItems: "flex-end",
               alignSelf: "flex-end",
-              flex: 3
+              flex: 3,
+              paddingTop: 500
             }}
           >
             <Link to="/global-menu" style={{ textDecoration: "none" }}>
@@ -74,6 +77,7 @@ export default class HomePage extends React.Component {
               </TouchableOpacity>
             </Link>
           </View>
+          <LogoLockUp />
         </ImageBackground>
       </View>
     );
