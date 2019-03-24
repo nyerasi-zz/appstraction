@@ -69,26 +69,22 @@ export default class GlobalMenu extends React.Component {
             <MenuButton
               text="Experience the Exhibition"
               buttonStyle={{ backgroundColor: "#D20663" }}
-              icon={FaQrcode}
               linksTo="/camera"
             />
             <MenuButton
               text="Navigate Artworks"
               buttonStyle={{ backgroundColor: "#F8AD0B" }}
-              icon={FaPaintBrush}
               linksTo="/global-menu"
             />
             <MenuButton
               text="About the Artist"
               buttonStyle={{ backgroundColor: "#186DBE" }}
-              icon={FaInfoCircle}
               linksTo="/about-artist"
             />
             <MenuButton
               text="#HansHofmann"
               buttonStyle={{ backgroundColor: "#3DBEA8" }}
               iconStyle={{ fontSize: "1.8rem", marginTop: -1 }}
-              icon={TiSocialInstagram}
               onClick={() => {
                 window.location.assign(
                   "https://www.instagram.com/explore/tags/hanshofmann/"
