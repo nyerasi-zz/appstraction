@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { ScrollView, View, Image } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 
@@ -22,7 +23,7 @@ const styles = EStyleSheet.create({
   }
 });
 
-export default class Search extends React.Component {
+class Search extends React.Component {
   state = {
     artDetails: -1
   };
@@ -65,15 +66,21 @@ export default class Search extends React.Component {
           <ScrollView
             bounces={false}
             alwaysBounceVertical={false}
-            contentContainerStyle={{ alignItems: "center" }}
+            contentContainerStyle={{
+              alignItems: "center"
+            }}
+            scrollEnabled
             style={{
+              height: "100%",
               flex: 1,
               width: "100%",
               paddingTop: 10,
               paddingBottom: 40,
-              paddingHorizontal: 20
+              paddingHorizontal: 20,
+              marginTop: 10
             }}
           >
+            <View />
             {Object.keys(this.state.artDetails).map(
               function(key, index) {
                 const artDetails = this.state.artDetails;
@@ -83,11 +90,11 @@ export default class Search extends React.Component {
                     name={artDetails[key].name}
                     year="1987"
                     link={key}
-                    photoFileLink={artDetails[key].photoFileLink}
                   />
                 );
               }.bind(this)
             )}
+
             <Footer />
           </ScrollView>
         </View>
@@ -97,7 +104,8 @@ export default class Search extends React.Component {
     return (
       <View
         style={{
-          flex: 1
+          flex: 1,
+          height: this.props.heightChanged.height || "initial"
         }}
         className="back-item"
       >
@@ -109,3 +117,9 @@ export default class Search extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  ...state
+});
+
+export default connect(mapStateToProps)(Search);

@@ -20,7 +20,9 @@ export default class SearchResult extends React.Component {
         }}
       >
         <ImageBackground
-          source={{ uri: this.props.photoFileLink }}
+          source={require(`../../assets/search_artworks/${
+            this.props.link
+          }.jpg`)}
           style={{
             width: "100%",
             height: 65,
@@ -28,7 +30,7 @@ export default class SearchResult extends React.Component {
           }}
           imageStyle={{
             width: "100%",
-            resizeMode: "center"
+            resizeMode: "cover"
           }}
         />
         <View
@@ -60,6 +62,5 @@ export default class SearchResult extends React.Component {
 SearchResult.propTypes = {
   link: PropTypes.string,
   name: PropTypes.string,
-  year: PropTypes.string,
-  photoFileLink: PropTypes.string
+  year: PropTypes.string
 };

@@ -1,7 +1,3 @@
-const initialStore = {
-    example: {
-
-    }
+export default {
+  heightChanged: {}
 };
-
-export default initialStore;

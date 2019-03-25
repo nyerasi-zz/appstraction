@@ -4,28 +4,13 @@ import {
   ImageBackground,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions
 } from "react-native";
 import { FaChevronRight } from "react-icons/fa";
 
 import { Link } from "../routers/Routing";
-import {
-  Logo,
-  LogoLockUp
-} from "../components/Images";
-
-const styles = {
-  backgroundImage: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  titleImage: {
-    width: 300,
-    height: 300,
-    paddingBottom: 350,
-  }
-};
+import { LogoLockUp } from "../components/Images";
 
 export default class HomePage extends React.Component {
   render() {
@@ -36,14 +21,31 @@ export default class HomePage extends React.Component {
         style={{ flex: 1 }}
       >
         <ImageBackground
-          style={styles.backgroundImage}
+          style={{
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center"
+          }}
           imageStyle={{ resizeMode: "cover" }}
           source={require("../assets/artworks/IndianSunset.jpg")}
         >
-          {/* MIDDLE TEXT */}
-          <View style={{ alignItems: "center", flex: 3 }}>
+          {/* TITLE TEXT */}
+          <View
+            style={{
+              flex: 1,
+              width: "100%",
+              alignItems: "center",
+              paddingTop: 30
+            }}
+          >
             <Image
-              style={styles.titleImage}
+              style={{
+                width: Dimensions.get("window").width * 0.7,
+                height: ((920 * Dimensions.get("window").width) / 984) * 0.7,
+                maxWidth: 450,
+                marginTop: window.innerWidth > 800 ? "-100px" : 0
+              }}
+              imageStyle={{ width: "80%" }}
               resizeMode="contain"
               source={require("../assets/essay_title_white.png")}
             />
@@ -52,11 +54,10 @@ export default class HomePage extends React.Component {
           {/* START BUTTON */}
           <View
             style={{
-              justifyContent: "center",
-              alignItems: "flex-end",
-              alignSelf: "flex-end",
               flex: 3,
-              paddingTop: 500
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+              width: "100%"
             }}
           >
             <Link to="/global-menu" style={{ textDecoration: "none" }}>
@@ -77,7 +78,14 @@ export default class HomePage extends React.Component {
               </TouchableOpacity>
             </Link>
           </View>
-          <LogoLockUp />
+          <LogoLockUp
+            viewStyle={{
+              flex: 1,
+              width: "100%",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          />
         </ImageBackground>
       </View>
     );

@@ -14,13 +14,9 @@ https://medium.com/one-more-thing-studio/native-react-native-or-pwa-what-should-
 
 ## Deploying to PROD
 
-Note: must be logged into heroku via `heroku login` (and have access to our instance via the web console)
-
 ```
-yarn build-web
-git add build && git status
-git commit -m "rebuilt project"
-git push heroku master
+yarn build
+now
 ```
 
 ### Starter links

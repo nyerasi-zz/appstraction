@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { ScrollView, View } from "react-native";
 import YouTube from "react-youtube";
 
@@ -7,12 +8,13 @@ import { Title, SubTitle } from "../components/Text";
 import { Footer } from "../components/Footer";
 import { MenuButton } from "../components/Button";
 
-export default class InfoPage extends React.Component {
+class InfoPage extends React.Component {
   render() {
     return (
       <View
         style={{
-          flex: 1
+          flex: 1,
+          height: this.props.heightChanged.height || "initial"
         }}
         className="back-item"
       >
@@ -110,3 +112,9 @@ export default class InfoPage extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  ...state
+});
+
+export default connect(mapStateToProps)(InfoPage);

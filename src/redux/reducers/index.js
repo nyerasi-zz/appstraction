@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
-import example from './exampleReducer';
+import { combineReducers } from "redux";
+import heightChanged from "./heightChanged";
 
 const reducers = {
-    example
+  heightChanged
 };
 
-export default combineReducers(reducers)
+export default combineReducers(reducers);

@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { View } from "react-native";
 import { FaPaintBrush, FaInfoCircle, FaQrcode } from "react-icons/fa";
 import { TiSocialInstagram } from "react-icons/ti";
@@ -7,7 +8,7 @@ import { MenuButton } from "../components/Button";
 import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
 
-export default class GlobalMenu extends React.Component {
+class GlobalMenu extends React.Component {
   state = {
     open: false
   };
@@ -16,7 +17,8 @@ export default class GlobalMenu extends React.Component {
     return (
       <View
         style={{
-          flex: 1
+          flex: 1,
+          height: this.props.heightChanged.height || "initial"
         }}
         className="transition-item menu-page"
       >
@@ -76,7 +78,7 @@ export default class GlobalMenu extends React.Component {
               text="Navigate Artworks"
               buttonStyle={{ backgroundColor: "#F8AD0B" }}
               icon={FaPaintBrush}
-              linksTo="/global-menu"
+              linksTo="/search"
             />
             <MenuButton
               text="About the Artist"
@@ -102,3 +104,9 @@ export default class GlobalMenu extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  ...state
+});
+
+export default connect(mapStateToProps)(GlobalMenu);

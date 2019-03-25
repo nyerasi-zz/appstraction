@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { ScrollView, View, Image } from "react-native";
 import YouTube from "react-youtube";
 
@@ -6,12 +7,13 @@ import { BackHeader } from "../components/Headers";
 import { Title, SubTitle } from "../components/Text";
 import { Footer } from "../components/Footer";
 
-export default class AboutArtist extends React.Component {
+class AboutArtist extends React.Component {
   render() {
     return (
       <View
         style={{
-          flex: 1
+          flex: 1,
+          height: this.props.heightChanged.height || "initial"
         }}
         className="back-item"
       >
@@ -29,7 +31,6 @@ export default class AboutArtist extends React.Component {
             contentContainerStyle={{ alignItems: "center" }}
             style={{
               flex: 1
-              // paddingBottom: 40
             }}
           >
             <View style={{ flex: 1, width: "90%" }}>
@@ -108,3 +109,9 @@ export default class AboutArtist extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  ...state
+});
+
+export default connect(mapStateToProps)(AboutArtist);

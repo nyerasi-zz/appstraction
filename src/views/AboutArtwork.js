@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Image, ScrollView, View } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import YouTube from "react-youtube";
@@ -25,7 +26,7 @@ const styles = EStyleSheet.create({
   }
 });
 
-export default class ArtPage extends React.Component {
+class ArtPage extends React.Component {
   constructor() {
     super();
 
@@ -170,7 +171,8 @@ export default class ArtPage extends React.Component {
     return (
       <View
         style={{
-          flex: 1
+          flex: 1,
+          height: this.props.heightChanged.height || "initial"
         }}
         className="back-item"
       >
@@ -195,3 +197,9 @@ export default class ArtPage extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  ...state
+});
+
+export default connect(mapStateToProps)(ArtPage);

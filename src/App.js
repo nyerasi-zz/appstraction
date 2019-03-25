@@ -7,7 +7,7 @@ import { Modal } from "@material-ui/core";
 
 import { isMobileDevice } from "./util/mobile";
 import { Title, SubTitle } from "./components/Text";
-import { exampleAction } from "./redux/actions/exampleAction";
+import { changeHeight } from "./redux/actions/changeHeight";
 import { Router, Switch, Route } from "./routers/Routing.web";
 import {
   HomePage,
@@ -26,9 +26,9 @@ import {
 
 const styles = EStyleSheet.create({
   appView: {
-    // flex: 1,
     backgroundColor: "$primaryGray",
-    height: "100%"
+    height: "100%",
+    flex: 1
   }
 });
 
@@ -49,18 +49,34 @@ const stylesObj = {
 
 export class App extends React.Component {
   state = {
-    modalOpen: this.shouldModalOpen()
+    modalOpen: this.shouldModalOpen(),
+    viewHeight: window.innerHeight
+    // viewHeight: Dimensions.get("window").height
   };
 
   handleWindowSizeChange = () => {
     this.setState({
       modalOpen: this.shouldModalOpen()
     });
+    this.updateViewHeight();
   };
+
+  updateViewHeight = () => {
+    // get height once and save it
+    let viewHeight = `${window.innerHeight}px`;
+    if (window.innerWidth > 800) viewHeight = "100vh";
+
+    this.props.changeHeight(viewHeight);
+    document.documentElement.style.setProperty("--view-height", viewHeight);
+  };
+
+  componentDidMount() {
+    this.updateViewHeight();
+  }
 
   componentWillMount() {
     document.title = "BAMPFA - Hans Hofmann Exhibit";
-    window.addEventListener("resize", this.handleWindowSizeChange, true);
+    window.addEventListener("resize", this.handleWindowSizeChange);
   }
 
   // make sure to remove the listener when the component is not mounted anymore
@@ -144,12 +160,12 @@ export class App extends React.Component {
 
 // Redux state config
 const mapStateToProps = state => ({
-  example: state.example
+  ...state
 });
 
 // dispatch actions
 const bindActions = dispatch => ({
-  exampleAction: () => dispatch(exampleAction())
+  changeHeight: data => dispatch(changeHeight(data))
 });
 
 export default connect(

@@ -14,13 +14,11 @@ export default EStyleSheet.create({
     flex: 1
   },
   appHeader: {
-    flex: 1,
-    padding: 20,
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: "flex-start",
+    alignItems: "flex-start"
   },
   logoLockUp: {
     width: 350,
-    height: 100,
+    height: 100
   }
 });

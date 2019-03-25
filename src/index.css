@@ -1,6 +1,10 @@
+:root {
+  --view-height: 100vh;
+}
+
 html,
 body {
-  height: 100%;
+  height: var(--view-height);
   font-size: small;
 }
 
@@ -18,5 +22,5 @@ body {
 }
 
 #root {
-  height: 100vh;
+  height: var(--view-height);
 }

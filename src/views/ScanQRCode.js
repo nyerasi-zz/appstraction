@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { View, ScrollView } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import screenfull from "screenfull";
@@ -23,7 +24,7 @@ const styles = EStyleSheet.create({
   }
 });
 
-export default class ScanQRCode extends React.Component {
+class ScanQRCode extends React.Component {
   constructor(props) {
     super(props);
     this.handleScan = this.handleScan.bind(this);
@@ -140,7 +141,13 @@ export default class ScanQRCode extends React.Component {
     }
 
     return (
-      <View style={{ flex: 1 }} className="back-item">
+      <View
+        style={{
+          flex: 1,
+          height: this.props.heightChanged.height || "initial"
+        }}
+        className="back-item"
+      >
         <BackHeader />
         <ScrollView
           bounces={false}
@@ -165,3 +172,9 @@ export default class ScanQRCode extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  ...state
+});
+
+export default connect(mapStateToProps)(ScanQRCode);
