@@ -80,7 +80,7 @@ class ScanQRCode extends React.Component {
   render() {
     // CAMERA VIEW
     let viewToRender = (
-      <View style={styles.cameraView}>
+      <View style={styles.cameraView} className = "transition-item scanner-page">
         <QRCamera handleScan={this.handleScan} handleError={this.handleError} />
       </View>
     );
@@ -151,7 +151,8 @@ class ScanQRCode extends React.Component {
         <BackHeader />
         <ScrollView
           bounces={false}
-          style={{ flex: 1, backgroundColor: "#01a7b7" }}
+          // prev color: #01a7b7
+          style={{ flex: 1, backgroundColor: "$primaryGray" }}
         >
           {viewToRender}
 
@@ -162,9 +163,9 @@ class ScanQRCode extends React.Component {
             }}
           >
             <FullWidthImage
-              source={require("../assets/tutorial/Tutorial.png")}
-              width={1000}
-              height={816}
+              source={require("../assets/tutorial/Tutorial_Resized.png")}
+              width={1368}
+              height={1295}
             />
           </View>
         </ScrollView>

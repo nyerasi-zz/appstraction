@@ -7,6 +7,8 @@ import { BackHeader } from "../components/Headers";
 import { SearchBar } from "../components/Inputs";
 import SearchResult from "../components/SearchResult/SearchResult";
 import { Footer } from "../components/Footer";
+import { Title, SubTitle } from "../components/Text";
+
 import firebase from "../data/firebase";
 
 const styles = EStyleSheet.create({
@@ -27,6 +29,11 @@ class Search extends React.Component {
   state = {
     artDetails: -1
   };
+
+  componentShouldUpdate() {
+    //check if we should render the component again (has text changed?)
+
+  }
 
   componentDidMount() {
     // fetch data from firebase and update state accordingly
@@ -49,6 +56,13 @@ class Search extends React.Component {
       });
   }
 
+  updateSearchResults(searchText) {
+    console.log(searchText);
+    this.setState({ searchText });
+
+
+  }
+
   render() {
     let viewToRender = (
       <Image
@@ -59,10 +73,13 @@ class Search extends React.Component {
 
     if (this.state.artDetails !== -1) {
       viewToRender = (
-        <View style={{ flex: 1, width: "100%" }}>
+        <View style={{ flex: 1, width: "100%"}}>
           <SearchBar
             onChangeText={searchText => this.setState({ searchText })}
           />
+          <SubTitle style={{ lineHeight: "1.3em", fontSize: "1.2rem", textAlign: "center", paddingVertical: 10 }}>
+            Results for "{this.state.searchText}"
+          </SubTitle>
           <ScrollView
             bounces={false}
             alwaysBounceVertical={false}
@@ -84,6 +101,7 @@ class Search extends React.Component {
             {Object.keys(this.state.artDetails).map(
               function(key, index) {
                 const artDetails = this.state.artDetails;
+                console.log(artDetails)
                 return (
                   <SearchResult
                     key={index}
