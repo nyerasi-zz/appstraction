@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, ImageBackground, FittedImage} from "react-native";
+import { View, Text, ImageBackground } from "react-native";
 import PropTypes from "prop-types";
 
 import { Link } from "../../routers/Routing.web";
