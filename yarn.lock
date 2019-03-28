@@ -1516,6 +1516,11 @@
     "@svgr/plugin-svgo" "^4.0.3"
     loader-utils "^1.1.0"
 
+"@types/clientjs@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@types/clientjs/-/clientjs-0.1.0.tgz#ca79f0ed0e2426fe0e74cca77a86d11309a0fcc2"
+  integrity sha512-kTBRwtvsOcRoEMKXtozlfBZ3XtC5QJKGGqZJl5WOMc8SJCFswE74aYA3WtvUWFNLepPhvodGwEJzLVZ7SUnEqw==
+
 "@types/cross-spawn@^6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@types/cross-spawn/-/cross-spawn-6.0.0.tgz#320aaf1d1a12979f1b84fe7a5590a7e860bf3a80"
@@ -3649,7 +3654,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5:
+classnames@^2.2.3, classnames@^2.2.5:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -3677,6 +3682,11 @@ cli-width@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
   integrity sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
+
+clientjs@^0.1.11:
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/clientjs/-/clientjs-0.1.11.tgz#466e1b13c229a3cbbd8484f98531dcd658f81054"
+  integrity sha1-Rm4bE8Ipo8u9hIT5hTHc1lj4EFQ=
 
 cliui@^3.0.3, cliui@^3.2.0:
   version "3.2.0"
@@ -11239,7 +11249,7 @@ punycode@^1.2.4, punycode@^1.4.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
   integrity sha1-wNWmOycYgArY4esPpSachN1BhF4=
 
-q@^1.1.2:
+q@^1.1.2, q@^1.4.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
@@ -11465,6 +11475,19 @@ react-filepond@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/react-filepond/-/react-filepond-6.0.1.tgz#37b5ce8abf8eb64f7444a3a8da9771371a13bc5d"
   integrity sha512-d+B35az6AYqvVc0aZ52cW9FMVmT40QCp2sIn4PdjvcqmSAhU9KnzxFb+Z65C211RY7jc+99cOWIbnQTDK68RFQ==
+
+react-fitted-image@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/react-fitted-image/-/react-fitted-image-0.1.4.tgz#a3bfed058d9cdd60c5012666944a0cd697757dd5"
+  integrity sha512-+BPGIxmIn1oj6woFqqB0uSKcwl1J1SK5ttyhjF2qFsFBOL9XX+yPX98kC+Pn9s31Z7M3Z7NaCRvu0ZKxvEorfQ==
+  dependencies:
+    classnames "^2.2.3"
+    q "^1.4.1"
+
+react-ga@^2.5.7:
+  version "2.5.7"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.5.7.tgz#1c80a289004bf84f84c26d46f3a6a6513081bf2e"
+  integrity sha512-UmATFaZpEQDO96KFjB5FRLcT6hFcwaxOmAJZnjrSiFN/msTqylq9G+z5Z8TYzN/dbamDTiWf92m6MnXXJkAivQ==
 
 react-icons@^3.2.2:
   version "3.5.0"

@@ -90,7 +90,7 @@ class ArtPage extends React.Component {
       } else {
         viewToRender = (
           <View style={{ flex: 1, width: "90%" }}>
-            <Title>{artDetails.name}</Title>
+            <Title style={{ lineHeight: "1" }}>{artDetails.name}</Title>
 
             {artDetails.photoFileLink !== "" && (
               <FullWidthImage
@@ -118,9 +118,9 @@ class ArtPage extends React.Component {
                 </div>
               )}
 
-              {(artDetails.audioText !== "" ||
+              {((artDetails.audioText && artDetails.audioText !== "") ||
                 artDetails.audioFileLink !== "") && (
-                <div label="Audio">
+                <div label={artDetails.audioFileLink !== "" ? "Audio" : "Text"}>
                   {artDetails.audioFileLink !== "" && (
                     <div>
                       <audio controls>

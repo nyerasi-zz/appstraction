@@ -4,7 +4,10 @@ import { View } from "react-native";
 import PageTransition from "react-router-page-transition";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { Modal } from "@material-ui/core";
+import ReactGA from "react-ga";
+import "clientjs";
 
+import secrets from "./data/secrets";
 import { isMobileDevice } from "./util/mobile";
 import { Title, SubTitle } from "./components/Text";
 import { changeHeight } from "./redux/actions/changeHeight";
@@ -51,7 +54,6 @@ export class App extends React.Component {
   state = {
     modalOpen: this.shouldModalOpen(),
     viewHeight: window.innerHeight
-    // viewHeight: Dimensions.get("window").height
   };
 
   handleWindowSizeChange = () => {
@@ -75,6 +77,15 @@ export class App extends React.Component {
   }
 
   componentWillMount() {
+    // eslint-disable-next-line no-undef
+    const client = new ClientJS();
+    console.log(client.getFingerprint());
+    ReactGA.initialize(secrets.GOOGLE_ANALYTICS_ID, {
+      gaOptions: {
+        clientId: client.getFingerprint()
+      }
+    });
+
     document.title = "BAMPFA - Hans Hofmann Exhibit";
     window.addEventListener("resize", this.handleWindowSizeChange);
   }
@@ -114,6 +125,7 @@ export class App extends React.Component {
         <Router>
           <Route
             render={({ location }) => {
+              ReactGA.pageview(location.pathname);
               // workaround for page transition (only active on these pages)
               if (
                 location.pathname === "/" ||
